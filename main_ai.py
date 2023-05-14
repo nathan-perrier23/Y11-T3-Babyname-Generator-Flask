@@ -1,4 +1,5 @@
 # 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
+# -*- coding: utf-8 -*-
 import openai
 import os
 import re
@@ -68,7 +69,7 @@ class Main():
         if matches: pass
         else:
             try:
-                regex = re.compile(r"(\d+)\.\s*([^\s:]+)\s*[:\-]\s*(.*)", re.MULTILINE) #r'(?P<order>\d+)\. (?P<name>[^–]+)–\s(?P<description>.+?)(?=\d+\.|\Z)'
+                regex = re.compile(r"(\d+)\.\s*([^\s:]+)\s*[:\-]\s*(.*)", re.MULTILINE) 
                 matches = regex.findall(names)
             except: pass
             
