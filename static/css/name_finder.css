@@ -1,0 +1,161 @@
+h1 {
+    font: var(--r-heading-font);
+    font-size: var(--r-heading1-size);
+    line-height: var(--r-heading-line-height);
+    color: var(--r-main-color);
+    font-weight: 600;
+    display: inline-block;
+}
+
+#one {
+    height: min-content;
+    width: 100%;
+    background-color: var(--r-background-color);
+    color: var(--r-main-color);
+    text-align: center;
+}
+
+#one form {
+    margin: 2em;
+}
+
+#one form span {
+    display: block;
+}
+
+
+#one form .content-2 {
+    display: block;
+}
+#one form .content-2 input {
+    outline:none;
+    padding: 4em 9em;
+    border-radius: .5em;
+    border: none;
+    text-align:center;
+    font-size:var(--r-main-font-size);
+    color: var(--r-background-color);
+    font:var(--r-main-font);
+    background-color: var(--r-main-color);
+    display:inline-block;
+}
+
+#one form .content-2 select {
+    outline:none;
+    padding: 1em 4em;
+    border-radius: .5em;
+    border: none;
+    text-align:center;
+    font-size:var(--r-main-font-size);
+    font:var(--r-main-font);
+    color: var(--r-background-color);
+    background-color: var(--r-main-color);
+    display:inline-block;
+    margin: 3%;
+}
+#one form .content-2 select option {
+    text-align: center;
+    align-items: center;
+    font-size: 1em;
+}
+
+/* #one form .content-2 button {
+    padding: 1.5em 4em;
+    font:var(--r-main-font);
+    background:var(--r-link-color);
+    border:0;
+    border-radius:.5em;
+    cursor:pointer;
+    color:var(--r-main-color);
+    display:inline-block;
+    transition: ease-in-out .5s;
+}
+
+#one form .content-2 button:hover, #one form .content-2 button:active {
+    background-color: var(--r-link-color-hover);
+} */
+
+
+button {
+    position: relative;
+    transition: all .5s ease;
+    overflow: hidden;
+    padding: 1.5em 4em;
+    font:var(--r-main-font);
+    background:var(--r-link-color);
+    border:0;
+    border-radius:.5em;
+    cursor:pointer;
+    color:var(--r-main-color);
+    display:inline-block;
+    transition: ease-in-out .5s;
+}
+
+.load {
+    position: absolute;
+    top: 25%;
+    left: -10%;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: inherit
+}
+
+.load::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    border: 3px solid var(--r-main-color);
+    width: 30px;
+    height: 30px;
+    border-left: 3px solid transparent;
+    border-bottom: 3px solid transparent;
+    animation: loading1 1s ease infinite;
+    z-index: 10
+}
+
+.load::before {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    border: 3px dashed var(--r-main-color);
+    width: 30px;
+    height: 30px;
+    border-left: 3px solid transparent;
+    border-bottom: 3px solid transparent;
+    animation: loading1 2s linear infinite;
+    z-index: 5
+}
+
+@keyframes loading1 {
+    0% {
+        transform: rotate(0deg)
+    }
+
+    100% {
+        transform: rotate(360deg)
+    }
+}
+
+button.active {
+    transform: scale(.85);
+}
+
+button:active, button:hover {
+    background-color: var(--r-link-color-hover);
+}
+
+button.activeLoading .loading {
+    visibility: visible;
+    opacity: 1
+}
+
+button .loading {
+    opacity: 0;
+    visibility: hidden
+}
+
+

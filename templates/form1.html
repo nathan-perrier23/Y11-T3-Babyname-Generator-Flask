@@ -1,0 +1,19 @@
+{% extends template %}
+{% block content1 %}                        <!-- block content -->
+    <img style="width: 60px;padding-bottom:5px;" class="logo" style="filter: grayscale(100%)" src="{{ url_for('static', filename='images/logo.png') }}">   <!-- school logo -->
+    <h1 style="font-weight:300;">{{header}}</h1>            <!-- header to make it clear what page the user is on -->
+    <h3 style="display:{{display10}};font-weight:570">{{s_header}}</h3>
+    <form>      
+        <input name="name" type="text" style="display:{{display1}}" placeholder={{placeholder1}} minlength="4" required />       <!-- retrieves the users name-->
+        <input name="email" style="display:{{display2}}" type="email" placeholder="{{placeholder2}}" minlength="10" required />        <!-- retrieves the users email -->
+        <input id=txtPassword style="display:{{display3}}" name="password" type="password" placeholder="Password" minlength="4" required class="textfield password" />
+        <a id=lnkforget style="display:{{display7}}" class=hyperlink href="/forgot password">Forgot Password?</a>
+        <input id=txtPassword style="display:{{display8}}" name=" forgot_password" type="password" placeholder="Confirm Password" minlength="4" required class="textfield password" />
+        <input type="text" class="text" style="display:{{display4}}" placeholder="{{placeholder3}}" required/>                                   <!-- retrieves the users query-->
+        <button style="display:{{display9}}">Submit</button>                                       
+        <a style="display:{{display11}}" href="/contact" class="btn">Continue</a>
+        <!-- needs a website reference section for login page -->
+        <a onclick="history.back()" class="go_back" style="display:{{display5}}">Go Back</a>              <!-- if the users wishes to go back it get's the last visted page in their history -->
+        <p class="message" style="display:{{display6}}">Not registered? <a href="/signup">Create an account</a></p>
+    </form> 
+{% endblock %} 

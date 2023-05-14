@@ -1,0 +1,126 @@
+* {
+    padding: 0%;
+    margin: 0%;
+}
+
+body {
+    max-width: 100vw;
+    padding: 0%;
+    margin: 0%;
+}
+
+h1 {
+    font: var(--r-heading-font);
+    font-size: var(--r-heading1-size);
+    line-height: var(--r-heading-line-height);
+    color: var(--r-main-color);
+    text-align: center;
+    margin-top: .5em;
+    font-weight: 550;
+}
+
+#table {
+    padding: 2.5%;
+    width: 95%;
+
+}
+
+table {
+    font: var(--r-main-font);
+    border-collapse: collapse;
+    width: 100%;
+}
+  
+td, th {
+    border: .15em solid var(--r-main-color);
+    text-align: center;
+    color: var(--r-main-color);
+}
+
+th {
+    padding: 1em;
+}
+
+td {
+    font-size: 1.2em;
+    width: inherit;
+    height: inherit;
+}
+
+td button {
+    font-size: inherit;
+    font: inherit;
+    background-color: inherit;
+    border: none;
+    padding: .5em;
+    width: 100%;
+    height: 100%;
+    color: var(--r-main-color);
+    transition: ease-in-out .5s;
+}
+
+td button:hover {
+    cursor: pointer;
+}
+
+/* tr:nth-of-type(n + 1):nth-child(odd):hover td button {
+    color: var(--r-link-color);
+}
+
+tr:nth-of-type(n + 1):nth-child(even):hover td button {
+    color: var(--r-background-color);
+} */
+
+tr:hover:nth-of-type(n + 1) td button {
+    transition: ease-in-out .5s;
+    font-weight: bolder;
+    padding: 1.2em;
+}
+
+
+
+th {
+    background-color: var(--r-link-color-dark);
+    font-size: 1.5em;
+    width: 33.33%;
+}
+
+tr:nth-child(even) {
+    background-color: var(--r-link-color);
+}
+
+
+#footer {
+    height: max-content; 
+    width: 100%;
+    padding-bottom: 1em;
+    background-color: var(--r-link-color-dark);
+}
+
+#footer .content {
+    text-align: center;
+    padding: 3em;
+}
+
+#footer .content button {
+    
+    padding: 1.25em 2.5em;
+    border-radius: .5em;
+    border: none;
+    font-size: 1em;
+    font: var(--r-main-font);
+    background-color: var(--r-main-color);
+    color: var(--r-background-color);
+    transition: ease-in-out .5s;
+}
+
+#footer .content button:hover {
+    cursor: pointer;
+    background-color: var(--r-background-color);
+    color: var(--r-main-color);
+    transition: ease-in-out .5s;
+}
+
+
+
+

@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+		<link rel="icon" href="{{ url_for('static', filename='images/logo.png') }}">
+		<title>Contact Us</title>
+        {% set css_file = theme %}
+        <link rel="stylesheet" href="{{ url_for('static', filename=css_file) }}" id="theme">
+         <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/about-contact_page.css') }}">
+	</head>
+    <body> 
+        <section id="one">             
+            {% include 'nav.html' %}    
+            <div class="row-1">             
+                <div class="col-1">     
+                    <h1>Contact Us</h1>
+                    <h1 class="text_info">Where Technology Meets Tradition.</h1>
+                    <h1 class="text_info display" style="margin-top:.5em">contact@aibabyname.com.au</h1>
+                    <p class="text_para" >We value your interest and would love to hear from you. Our team is always ready to assist with any questions, concerns, or feedback you may have. You can reach us by filling out the contact form below or by emailing us directly at contact@aibabyname.com.au. We look forward to hearing from you and helping you find the perfect name for your little one.</p> 
+                    <a href="/contact form" class="btn" >Contact Us  &#8594</a> 
+                </div>
+                <div class="col-2"> <!--AIzaSyDoC8m3tbrbN-8j1HRYxDZFg7EVgYBsDxg-->
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14159.852521159211!2d153.01275038958215!3d-27.470407182656093!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b915a045cf620bb%3A0x502a35af3de84c0!2sBrisbane%20City%20QLD%204000!5e0!3m2!1sen!2sau!4v1682985059358!5m2!1sen!2sau" control="none" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>

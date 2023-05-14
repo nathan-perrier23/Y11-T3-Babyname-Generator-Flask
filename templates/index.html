@@ -1,0 +1,388 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="icon" href="{{ url_for('static', filename='images/logo.png') }}">
+
+		<title>My Presentation</title>
+
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/dist/reset.css') }}">
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/dist/reveal.css') }}">
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+		<link rel="stylesheet" href="{{ url_for('static', filename=theme) }}" id="theme">
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/theme/template/mixins.scss') }}">
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/theme/template/settings.scss') }}">
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/theme/template/theme.scss') }}">
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/theme/template/exposer.scss') }}">
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/highlight/monokai.css') }}">
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/layout.scss') }}">
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/reveal.scss') }}">
+		<link href="?transition=convex#/transitions">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section id="slide-1">
+					<section data-background-gradient="linear-gradient(to bottom, var(--r-background-color), var(--r-link-color-dark)">
+						<h1 style="font-size:3em;color:var(--r-link-color)">AI Baby Name Finder</h1> <!--link to demo <a style="transition:1.5s" href="#slide-1-2">-->
+						<h5>Nathan Perrier</h5>
+						<a style="transition:1.5s;color:var(--main-color);font-size:var(--main-font-size)" href="#slide-1-2">Please Customise Your Experience...</a>
+						<br><br>
+						<a style="transition:1.5s;color:var(--main-color);font-size:var(--main-font-size);" href="/name finder">Try The Application &#8594</a>
+					</section>
+					<section data-auto-animate id="slide-1-2">
+						<h2>Transition Styles</h2>
+						<p>
+							You can select from different transitions: <br>
+							<a href="?transition=none#/transitions">None</a> -
+							<a href="?transition=fade#/transitions">Fade</a> -
+							<a href="?transition=slide#/transitions">Slide</a> -
+							<a href="?transition=convex#/transitions">Convex</a> -
+							<a href="?transition=concave#/transitions">Concave</a> -
+							<a href="?transition=zoom#/transitions">Zoom</a>
+						</p>
+					</section>
+					<section id="slide-1-3">
+						<h2>Themes</h2>
+						<p>
+							You can pick from multiple different themes: <br>
+							<a href="#" onclick="setTheme('static/css/dist/theme/blood.css'); return false;">Blood (default)</a> -
+							<a href="#" onclick="setTheme('static/css/dist/theme/black.css'); return false;">Black</a> -
+							<a href="#" onclick="setTheme('static/css/dist/theme/white.css'); return false;">White</a> -
+							<a href="#" onclick="setTheme('static/css/dist/theme/league.css'); return false;">League</a> -
+							<a href="#" onclick="setTheme('static/css/dist/theme/sky.css'); return false;">Sky</a> -
+							<a href="#" onclick="setTheme('static/css/dist/theme/beige.css'); return false;">Beige</a> -
+							<a href="#" onclick="setTheme('static/css/dist/theme/simple.css'); return false;">Simple</a> <br>
+							<a href="#" onclick="setTheme('static/css/dist/theme/serif.css'); return false;">Serif</a> -
+							<a href="#" onclick="setTheme('static/css/dist/theme/night.css'); return false;">Night</a> -
+							<a href="#" onclick="setTheme('static/css/dist/theme/moon.css'); return false;">Moon</a> -
+							<a href="#" onclick="setTheme('static/css/dist/theme/solarized.css'); return false;">Solarized</a>
+						</p>
+					</section>
+					<aside class="notes">
+						SLIDE 1 NOTES
+					</aside>
+				</section>
+				<section id="slide-2">
+					<h1 style="font-size:3em;color:var(--r-link-color)">Introduction</h1> <!-- ADD OTHERS (on tasksheet)-->
+				</section>
+				<section id="slide-3">
+					<section>
+						<h1 style="font-size:3em;">Mind Map</h1>
+					</section>
+					<section data-auto-animate>
+						<div class="mb-5"><a href="https://www.mindmeister.com/2752380861/ai-baby-name-generator" target="_blank">AI Baby Name Generator</a> by <a href="https://www.mindmeister.com/users/channel/61712884" target="_blank">Nathan Perrier</a></div><p></p>
+						<iframe class="iframe" frameborder="0" src="https://www.mindmeister.com/maps/public_map_shell/2752380861/ai-baby-name-generator?width=600&height=400&z=auto&presentation=1" scrolling="no" style="overflow: hidden; margin-bottom: 5px;">Your browser is not able to display frames. Please visit <a href="https://www.mindmeister.com/2752380861/ai-baby-name-generator" target="_blank">AI Baby Name Generator</a> on MindMeister.</iframe>
+						<!--CHANGE OUT AUDIO!! NO AUTOPLAY! --><audio controls><source src="{{ url_for('static', filename='audio/1.m4a') }}"></audio>
+						<p style="font-size:.25em;margin:none">*try reloading if mindmap is not showing*</p>
+					</section>
+				</section>
+				<section id="slide-4">
+					<section>
+						<h1 style="font-size:3em;">Success Criteria</h1>
+					</section>
+					<section data-auto-animate>
+						<img class="img-colour" src="{{ url_for('static', filename='images/images for folio/criteria.png')}}">
+					</section>
+				</section>
+				<section id="slide-5">
+					<h1 style="font-size:3em;color:var(--r-link-color)">The user story</h1>
+				</section>
+				<section id="slide-6">
+					<section>
+						<h1 style="font-size:3em;">Existing Solutions</h1>
+					</section>
+					<section data-auto-animate>
+						<h2>Existing Solution 1</h2>
+						<div style="display:inline-flex;width:80vw">
+							<div class="fragment fade-right">
+								<img style="width:100%;height:100%" src="{{ url_for('static', filename='images/images for folio/solution 1-4-e.png')}}">
+							</div>
+							<!--<div class="fragment fade">
+								<img style="width:100%;height:100%" src="{{ url_for('static', filename='images/images for folio/solution 1-1.png')}}">
+							</div>-->
+							<div class="fragment fade-up">
+								<img style="width:100%;height:100%" src="{{ url_for('static', filename='images/images for folio/solution 1-2-e.png')}}">
+							</div>
+							<div class="fragment fade-left">
+								<img style="width:100%;height:100%" src="{{ url_for('static', filename='images/images for folio/solution 1-5-e.png')}}">
+							</div>
+						</div>
+						<!--CHANGE OUT AUDIO!! --><audio controls><source src="{{ url_for('static', filename='audio/1.m4a') }}"></audio>
+					</section>
+					<section>
+						<h2>Existing Solution 2</h2>
+						<img style="width:100%;height:100%" src="{{ url_for('static', filename='images/images for folio/Solution 2.PNG')}}">
+						<!--CHANGE OUT AUDIO!! --><audio controls><source src="{{ url_for('static', filename='audio/1.m4a') }}"></audio>
+					</section>
+				</section>
+				<section id="slide-7">
+					<section>
+						<h1 style="font-size:3em;">Data Analysis</h1>
+					</section>
+					<section data-auto-animate>
+						<h2>looking at data from given website</h2>
+					</section>
+					<section>
+						<h2>Dataset 1</h2>
+						<iframe width="450" height="400" src="https://www.data.qld.gov.au/dataset/top-100-baby-names/resource/9368a6bb-b6ae-4e47-a4f5-48299333047d/view/0425468e-d72e-46d1-b1cf-9f01fad93e5c" frameBorder="0"></iframe>
+					</section>
+					<section data-auto-animate>
+						<h2>Dataset 2</h2>
+
+					</section>
+				</section>
+				<section id="slide-8">
+					<section>
+						<h1 style="font-size:3em;">Dataset Cleaning</h1>
+					</section>
+					<section data-auto-animate>
+						<h2>selecting the data needed and tidying the data</h2>
+					</section>
+				</section>
+				<section id="slide-9">
+					<section>
+						<h1 style="font-size:3em;">Data Dictionaries/ Sample data</h1>
+					</section>
+					<section data-auto-animate>
+						<h2>displaying nessesary data in data tables as vairables (data type, size, etc.)</h2>
+					</section>
+				</section>
+				<section id="slide-10">
+					<section>
+						<h1 style="font-size:3em;">applications required</h1>
+					</section>
+					<section data-auto-animate>
+						<h2>Text Editor</h2>
+						<img style="width:25%;height:25%" src="{{ url_for('static', filename='images/images for folio/vscode.png')}}">
+						<div class="display:inline-block">
+							<img class="fragment fade-in-then-semi-out padding-sides-2" style="width:20%;height:20%" src="{{ url_for('static', filename='images/images for folio/copilot.png')}}">
+							<img class="fragment fade-in-then-semi-out padding-sides-2" style="width:25%;height:25%" src="{{ url_for('static', filename='images/images for folio/aws.png')}}">
+							<img class="fragment fade-in-then-semi-out img-colour-2 padding-sides-2" style="width:20%;height:20%" src="{{ url_for('static', filename='images/images for folio/chatgpt.png')}}">
+						</div>
+						<!--CHANGE OUT AUDIO!! --><audio controls><source src="{{ url_for('static', filename='audio/1.m4a') }}"></audio>
+					</section>
+					<section> <!-- vs code + ai used to help code (maybe also break dow)-->
+						<h2>Back End</h2>
+						<img style="width:30%;height:30%" src="{{ url_for('static', filename='images/images for folio/python.png')}}">
+						<div style="inline-flex">
+							<img class="fragment fade-in-then-semi-out padding-sides-2" style="width:25%;height:25%" src="{{url_for('static', filename='images/images for folio/jinja.png')}}">
+							<img class="fragment fade-in-then-semi-out padding-sides-2" style="width:25%;height:10%" src="{{url_for('static', filename='images/images for folio/flask.png')}}">
+							<img class="fragment fade-in-then-semi-out padding-sides-2" style="width:30%;height:30%" src="{{url_for('static', filename='images/images for folio/openai.png')}}">
+						</div>
+						<!--CHANGE OUT AUDIO!! --><audio controls><source src="{{ url_for('static', filename='audio/1.m4a') }}"></audio>
+					</section>
+					<section data-auto-animate>
+						<h2>Back End - AI Models</h2>
+						<img style="width:50%;height:50%" src="{{ url_for('static', filename='images/images for folio/openai.png')}}">
+						<div style="inline-flex">
+							<img class="fragment fade-right padding-sides-2" style="width:24.5%;height:10%" src="{{url_for('static', filename='images/images for folio/gpt.jpg')}}">
+							<img class="fragment fade-left padding-sides-2" style="width:30%;height:50%" src="{{url_for('static', filename='images/images for folio/dalle.jpg')}}">
+						</div>
+						<!--CHANGE OUT AUDIO!! --><audio controls><source src="{{ url_for('static', filename='audio/1.m4a') }}"></audio>
+					</section>
+					<section>
+						<h2>Front End</h2>
+						<br>
+						<div class="display:inline-flex">
+							<!-- animations and stuff --><img class="padding-sides-2" style="width:15%;height:25%" src="{{ url_for('static', filename='images/images for folio/javascript.png')}}">
+							<img class="fragment fade-in-then-semi-out padding-sides-2" style="width:15%;height:20%" src="{{ url_for('static', filename='images/images for folio/html.png')}}">
+							<img class="fragment fade-in-then-semi-out padding-sides-2" style="width:16%;height:30%" src="{{ url_for('static', filename='images/images for folio/css.png')}}">
+							<img class="fragment fade-in-then-semi-out padding-sides-2" style="width:20%;height:30%" src="{{ url_for('static', filename='images/images for folio/jinja_c.png')}}">
+						</div>
+						<br>
+						<!--CHANGE OUT AUDIO!! --><audio controls><source src="{{ url_for('static', filename='audio/1.m4a') }}"></audio>
+					</section>
+				</section>
+				<section id="slide-11">
+					<section>
+						<h1 style="font-size:3em;">data analysis</h1>
+					</section>
+					<section data-auto-animate>
+						<h2>talk about data being used in the website?</h2>
+					</section>
+				</section>
+				<section id="slide-12">
+					<section>
+						<h1 style="font-size:3em;">Wireframe and Usability/Utility</h1>
+					</section>
+					<section>
+						<h2>have a wireframe and talk about usability and how it relates to success criteria</h2>
+					</section>
+				</section>
+				<section id="slide-13">
+					<section>
+						<h1 style="font-size:3em;">Algorithms (Pseudocode)</h1>
+					</section>
+					<section data-auto-animate>
+						<h2>Run.py</h2>
+					</section>
+				</section>
+				<section id="slide-14">
+					<section>
+						<h1 style="font-size:3em;">generate section?</h1>
+					</section>
+					<section data-auto-animate>
+						<h2 data-id="code-title">JavaScript</h2>
+						<pre data-id="code-animation"><code class="hljs javascript" data-trim data-line-numbers="|4,8-11|17|22-24"><script type="text/template">
+							import React, { useState } from 'react';
+
+							function Example() {
+							const [count, setCount] = useState(0);
+
+							return (
+								<div>
+								<p>You clicked {count} times</p>
+								<button onClick={() => setCount(count + 1)}>
+									Click me
+								</button>
+								</div>
+							);
+							}
+
+							function SecondExample() {
+							const [count, setCount] = useState(0);
+
+							return (
+								<div>
+								<p>You clicked {count} times</p>
+								<button onClick={() => setCount(count + 1)}>
+									Click me
+								</button>
+								</div>
+							);
+							}
+						</script></code></pre>
+					</section>
+				</section>
+				<section id="slide-15">
+					<section>
+						<h1 style="font-size:3em;">Proposed solution / coded solution</h1>
+					</section>
+					<section data-auto-animate>
+						<h2>user interface of coded prototype maybe have a video displaying wesbite use</h2>
+					</section>
+					<section>
+						<div style="background:var(--r-main-color)">
+							<img src="{{ url_for('static', filename='images/images for folio/interface1.png')}}">
+						</div>
+					</section>
+					<section data-auto-animate>
+						<div style="background:var(--r-main-color)">
+							<img src="{{ url_for('static', filename='images/images for folio/interface2.png')}}">
+						</div>
+					</section>
+				</section>
+				<section id="slide-16">
+					<section>
+						<h1 style="font-size:3em;">user feedback and reccomendations</h1>
+					</section>
+					<section data-auto-animate>
+						<h2>feedback from friends and family</h2>
+					</section>
+				</section>
+				<section id="slide-17">
+					<section>
+						<h1 style="font-size:3em;">evaluation of sdc and pc</h1>
+					</section>
+					<section data-auto-animate>
+						<h2>describe if or if not the criteria was fullfield should be based on data (user and self feedback)</h2>
+					</section>
+				</section>
+				<section id="slide-18">
+					<section>
+						<h1 style="font-size:3em;">references</h1>
+					</section>
+					<section data-auto-animate>
+						<h2>apa 7</h2>
+					</section>
+				</section>
+				<section id="slide-19">
+					<section>
+						<h2 style="display:inline-flex">Try Out the application</h2>
+					</section>
+					<section>
+						<form action="{{ url_for('index') }}" method="POST" name="myForm">
+							<span>
+								<h3>Who Are You?</h3>
+							</span>
+							<span style="transition:1s;display:inline-block" class="fragment fade-up">
+								<p></p>
+								<input name="prompt" style="outline:none;padding: 2.5em 5em;text-align:center;font-size:var(--main-font-size);font:var(--main-font);display:inline-block;transition:1s;border-radius:.5em;border: none;background-color:var(--r-main-color);color:var(--r-background-color);" type="text" placeholder="{{placeholder}}" required>
+								<br>
+								<select name="gender" required placeholder="What Gender is Your Baby?" style="padding:.25em 1em;text-align:center;font:var(--main-font);display:inline-block;transition:1s;margin-top:3%;border-radius:.5em;border: none;color: var(--r-background-color);background-color: var(--r-main-color);">
+									<option style="font-size:.8em;text-align:center">Boy</option>
+									<option style="font-size:.8em;text-align:center">Girl</option>
+									<option style="font-size:.8em;text-align:center">Unknown</option>
+								</select>
+								<p></p>
+								<button type="submit" value="Submit">Submit<span class="load loading"></span></button>
+							</span>
+						</form>
+					</section>
+				</section>
+			</div>
+		</div>
+		<script src="{{ url_for('static', filename='css/dist/reveal.js') }}"></script>
+		<script src="{{ url_for('static', filename='js/plugin/zoom/zoom.js') }}"></script>
+		<script src="{{ url_for('static', filename='js/plugin/notes/notes.js') }}"></script>
+		<script src="{{ url_for('static', filename='js/plugin/search/search.js') }}"></script>
+		<script src="{{ url_for('static', filename='js/plugin/markdown/markdown.js') }}"></script>
+		<script src="{{ url_for('static', filename='js/plugin/highlight/highlight.js') }}"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				plugins: [ RevealNotes ],
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
+			});
+			function setTheme(theme) {
+				document.getElementById('theme').setAttribute('href', theme);
+
+				const data = { theme_url: theme};
+
+				// Create a new XMLHttpRequest object
+				const xhr = new XMLHttpRequest();
+
+				// Set up the request
+				xhr.open('POST', '/');
+
+				// Set the request header to indicate that we are sending JSON data
+				xhr.setRequestHeader('Content-Type', 'application/json');
+
+				// Send the request with the data as a JSON string
+				xhr.send(JSON.stringify(data));
+			}			
+			xhr.onload = function() {
+				if (xhr.status === 200 || xhr.status === 304) {
+				  // Handle the response from the server
+				  console.log(xhr.responseText);
+				}
+				else {
+				  console.error('Request failed. Returned status of', xhr.status);
+				}
+			};
+			const btns = document.querySelectorAll('button');
+            btns.forEach((button) => {
+                const input = button.closest('form').querySelector('input[name="prompt"]');
+                button.addEventListener('click', (evt) => {
+                if (input.value !== '') {
+                    evt.target.classList.add('activeLoading');
+                } else {
+                    evt.preventDefault(); // prevent form submission if input is empty
+                    alert('Please Enter Something About you...')
+                }
+                });
+            });
+		</script>	
+	</body>
+</html>

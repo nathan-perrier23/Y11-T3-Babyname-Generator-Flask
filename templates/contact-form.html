@@ -1,0 +1,11 @@
+{% extends 'template-form1-2.html' %}
+{% block content1 %}                
+    <img style="width: 60px;padding-bottom:5px;" class="logo" style="filter: grayscale(100%)" src="{{ url_for('static', filename='images/logo.png') }}">   <!-- school logo -->
+    <h1 style="font-weight:300;">Contact Form</h1>         
+    <form action="{{ url_for('contact_form_page') }}" method="POST">      
+        <input name="name" type="name" placeholder="Full Name" minlength="4" required />     
+        <input name="email" type="email" placeholder="Email" minlength="10" required />    
+        <input name="message" type="text" class="text" placeholder="Message" required/>                              
+        <button style="width:100%">Submit</button>                                       
+        <a onclick="history.back()" class="go_back">Go Back</a>      
+{% endblock %} 

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="icon" href="{{ url_for('static', filename='images/logo.png') }}">
+        <title>Your Baby Name</title>
+        {% set css_file = theme %}
+        <link rel="stylesheet" href="{{ url_for('static', filename=css_file) }}" id="theme">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/your_names.css') }}"> 
+    </head>
+    <body class="reveal">
+        {% set theme = theme|replace('static/', '') %} 
+        {% set num_sections = keys|length %}
+        <style>
+            .section { width: {{ 100/(keys|length) }}% }
+            @media (max-width: 768px) { .section { width: 100% } }
+            /*.section:hover .column { width: {{ 100/(keys|length) }}% }*/
+            .section:hover { width: {{ 200/(keys|length) }}% }
+        </style>
+        <div class="wrap">
+            {% for key in keys %}     
+                <div class="col">
+                    <h1>{{ names[loop.index0] }}</h1>
+                    <p style="font-size: 1.85rem;">{{ descriptions[loop.index0] }}</p>
+                    <p class="gender">Gender: {{genders[loop.index0]}}</p>
+                    <p class="origin" style="margin:none">Origin:
+                        {% for origin in origins[names[loop.index0]] %} 
+                            <p class="origin" style="margin:none">&nbsp{{origin}},</p> <!--{{origin}},-->
+                        {% endfor %}
+                    </p>
+                    <form action="{{ url_for('fact_page') }}" method="POST">
+                        <input type="hidden" name="baby_name" value="{{ names[loop.index0] }}">
+                        <input type="hidden" name="baby_desc" value="{{ descriptions[loop.index0] }}">
+                        <input type="hidden" name="baby_gender" value="{{ genders[loop.index0] }}">
+                        <input type="hidden" name="baby_origin" value="{{ origins[names[loop.index0]][0] }}">
+                        <button type="submit">See More<span class="load loading"></span></button>
+                    </form>
+                </div>
+            {% endfor %}
+        </div>
+        <script>
+            const btns = document.querySelectorAll('button');
+            btns.forEach((items)=>{
+                items.addEventListener('click',(evt)=>{
+                    evt.target.classList.add('activeLoading');
+                })   
+            })
+        </script>
+    </body>
+</html>

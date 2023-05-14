@@ -1,0 +1,139 @@
+* {
+    padding: 0%;
+    margin: 0%;
+}
+
+
+html {
+    scroll-behavior: smooth;
+    background-color: var(--r-background-color);
+    font-family: var(--r-main-font);
+}
+
+.navbar
+{
+    display: flex;
+    align-items: center;
+    padding: 1em;
+    background-color: var(--r-link-color);
+}
+ 
+nav{
+    flex: 1;
+    text-align: right;
+}
+ 
+nav ul{
+    display: inline-block;
+    list-style-type: none;
+}
+
+nav ul .open_button {
+    display: none;
+}
+ 
+nav ul li 
+{
+    display: inline-flex;
+    margin-right: 1.5em;
+    font-weight: 700;
+}
+
+.overlay {
+    display: none;
+}
+
+.logo:hover {
+    opacity: 0.85;
+    transition: ease-in-out .25s;
+}
+
+.logo {
+    transition: ease-in-out .25s;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: var(--r-background-color);
+    transition: ease-in-out .2s;
+    font-size: 1.2em;
+}
+.navbar ul li a:hover {
+    color: var(--r-main-color);
+    transition: ease-in-out .2s;
+    cursor: pointer;
+}
+.home {
+    display: none;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+}
+
+@media screen and (max-width:1040px) { 
+    nav {
+        text-align: center;
+        padding: 1.5em;
+    }
+    nav ul li {
+        margin-right: .5em;
+    }
+    .logo {
+        display: none;
+    }
+    .home {
+        display: inline-flex;
+    }
+  
+}
+
+@media screen and (max-width:800px) { 
+    nav {
+        text-align: center;
+    }
+    nav ul li {
+        margin-right: .3em;
+    }
+    nav ul li a {
+        font-size: .7em;
+    }
+}
+
+@media screen and (max-width:760px) {
+    nav ul li a {
+        font-size: .8em;
+    }
+}
+@media screen and (max-width:700px) {
+    nav ul li a {
+        font-size: .7em;
+    }
+    nav ul li {
+        margin-right: .2em;
+    }
+}
+@media screen and (max-width:580px) {
+    nav ul li a {
+        font-size: .6em;
+    }
+    nav ul li {
+        margin-left: 0%;
+        margin-right: auto;
+    }
+    nav {
+        text-align: center;
+    }
+}
+::-webkit-scrollbar {
+    width: 15px;
+}       
+::-webkit-scrollbar-track {
+    background-color: var(--r-background-color);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--r-link-color);
+    cursor: pointer;
+    height: 60px;
+}

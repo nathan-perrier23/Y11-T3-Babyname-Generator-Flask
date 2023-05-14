@@ -1,0 +1,47 @@
+$primary: #00acc1;
+
+#two .row-2 .col-1 .map-container {
+  padding: 3.2rem .8rem;
+  position: relative;
+  display: inline-block;
+  #two .row-2 .col-1 .map-container img {
+    width: 100%;
+  }
+  #two .row-2 .col-1 .map-container .point {
+    cursor: pointer;
+    position: absolute;
+    width: 1rem;
+    height: 1rem;
+    background-color:  $primary;
+    border-radius: 50%;
+    transition: all .3s ease;
+    will-change: transform, box-shadow;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 0 rgba($primary, 0.4);
+    animation: pulse 3s infinite;
+    &:hover {
+      animation: none;
+      transform:  translate(-50%, -50%) scale3D(1.35, 1.35 ,1);
+      box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    }
+  }
+  #two .row-2 .col-1 .map-container .venezuela { top: 54%; left: 24%; }
+  #two .row-2 .col-1 .map-container .brasil { top: 64%; left: 28%; }
+  #two .row-2 .col-1 .map-container .argentina { top: 77%; left: 27%; }
+  #two .row-2 .col-1 .map-container .colombia { top: 55%; left: 21%; }
+  #two .row-2 .col-1 .map-container .panama { top: 51%; left: 18%; }
+  #two .row-2 .col-1 .map-container .mexico { top: 38%; left: 12%; }
+  #two .row-2 .col-1 .map-container .usa { top: 26%; left: 17%; }
+  #two .row-2 .col-1 .map-container .arabia { top: 40%; left: 53%; }
+  #two .row-2 .col-1 .map-container .turquia { top: 31%; left: 57%; }
+  #two .row-2 .col-1 .map-container .rusia { top: 16%; left: 67%; }
+  #two .row-2 .col-1 .map-container .china { top: 40%; left: 72%; }
+  #two .row-2 .col-1 .map-container .japon { top: 34%; left: 86%; }
+  #two .row-2 .col-1 .map-container .australia { top: 72%; left: 86%; }
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba($primary, 0.5); }
+  70% { box-shadow: 0 0 0 25px rgba($primary, 0); }
+  100% { box-shadow: 0 0 0 0 rgba($primary, 0); }
+}

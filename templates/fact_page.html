@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+		<link rel="icon" href="{{ url_for('static', filename='images/logo.png') }}">
+		<title>Fact Page</title>
+        {% set css_file = theme %}
+        <link rel="stylesheet" href="{{ url_for('static', filename=css_file) }}" id="theme">
+         <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/fact_page.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/map.scss') }}">
+	</head>
+    <body> <!-- ! make so it uses templates (extended) -->
+        <section id="one">              <!-- section one -->  
+            {% include 'nav.html' %}        <!-- includes the navbar -->
+            <div class="row-1">             <!-- row -->    
+                <div class="col-1">     
+                    <h1 class="text_main">{{name}}</h1><br>
+                    <h1>Placement<h1 class="text_info">: {{ name_dict['rank'].strip('.0') }}</h1></h1><br> <!-- works?? -->
+                    <h1>origin<h1 class="text_info">: {{origin}}</h1></h1><br> <!-- correct? ???? -->
+                    <h1>Gender<h1 class="text_info">: {{gender}}</h1> </h1><br>
+                    <h1>Count<h1 class="text_info">: {{ (("{:,.2f}".format(name_dict['n_sum'] | float)) | string).strip('.00') }}</h1></h1><br>
+                </div>
+                <div class="col-2">
+                    <img src={{ img }} style="display:cover;"> <!-- drone footage of the school -->
+                </div>
+            </div>
+        </section>
+        <section id="two">
+            <div class="row-2">
+                <div class="row-2 col-1">
+                    <div class="container">
+                        <div class="map-container">
+                          <img src="http://res.cloudinary.com/slzr/image/upload/v1500321012/world-map-1500_vvekl5.png">
+                          <div id="" class="point venezuela tippy" title="Venezuela"></div>
+                          <div class="point brasil tippy" title="Brasil"></div>
+                          <div class="point argentina tippy" title="Argentina"></div>
+                          <div class="point colombia tippy" title="Colombia"></div>
+                          <div class="point panama tippy" title="Panamá"></div>
+                          <div class="point mexico tippy" title="Mexico"></div>
+                          <div class="point usa tippy" title="United States"></div>
+                          <div class="point canada tippy" title="Canada"></div>
+                          <div class="point saudi_arabia tippy" title="Saudi Arabia"></div>
+                          <div class="point turquia tippy" title="Turquía"></div>     
+                          <div class="point rusia tippy" title="Rusia"></div>
+                          <div class="point china tippy" title="China"></div>
+                          <div class="point japan tippy" title="Japan"></div>
+                          <div class="point australia tippy" title="Australia"></div>
+                          <div class="point spain tippy" title="Spain"></div>
+                          <div class="point france tippy" title="France"></div>
+                          <div class="point germany tippy" title="Germany"></div>
+                          <div class="point italy tippy" title="Italy"></div>
+                          <div class="point emirates tippy" title="United Arab Emirates"></div>
+                          <div class="point india tippy" title="India"></div>
+                          <div class="point ireland tippy" title="Ireland"></div>
+                          <div class="point uk tippy" title="United Kingdom"></div>
+                          <div class="point greece tippy" title="Greece"></div>
+                          <div class="point africa tippy" title="Africa"></div>
+                        </div>
+                      </div>
+                </div>
+                <div class="row-2 col-2">
+                    <div class="content">
+                        <h1>Another Section</h1>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In est ante in nibh. Duis ultricies lacus sed turpis tincidunt id aliquet risus feugiat. Condimentum vitae sapien pellentesque habitant morbi tristique senectus et. Iaculis nunc sed augue lacus viverra vitae congue. In nisl nisi scelerisque eu ultrices vitae. Viverra aliquet eget sit amet tellus. Auctor elit sed vulputate mi sit. Tellus in hac habitasse platea dictumst vestibulum rhoncus. Lorem dolor sed viverra ipsum. Adipiscing diam donec adipiscing tristique risus nec feugiat. Habitant morbi tristique senectus et netus et malesuada. Dictum fusce ut placerat orci nulla pellentesque dignissim. Risus viverra adipiscing at in tellus integer. Sagittis vitae et leo duis ut diam quam nulla porttitor. Varius quam quisque id diam vel quam elementum quam.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="three">
+            <div class="content">
+                <h1>Why Would {{name}} Suit You?</h1>
+                <p>{{desc}}</p>
+            </div>
+        </section>
+        <section id="four">
+            <div class="row-3">
+                <div class="row-3 col-1">
+                    <div class="content">
+                        <h1>Another Section</h1>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In est ante in nibh. Duis ultricies lacus sed turpis tincidunt id aliquet risus feugiat. Condimentum vitae sapien pellentesque habitant morbi tristique senectus et. Iaculis nunc sed augue lacus viverra vitae congue. In nisl nisi scelerisque eu ultrices vitae. Viverra aliquet eget sit amet tellus. Auctor elit sed vulputate mi sit. Tellus in hac habitasse platea dictumst vestibulum rhoncus. Lorem dolor sed viverra ipsum. Adipiscing diam donec adipiscing tristique risus nec feugiat. Habitant morbi tristique senectus et netus et malesuada. Dictum fusce ut placerat orci nulla pellentesque dignissim. Risus viverra adipiscing at in tellus integer. Sagittis vitae et leo duis ut diam quam nulla porttitor. Varius quam quisque id diam vel quam elementum pulvinar.</p>
+                    </div>
+                </div>
+                <div class="row-3 col-2">
+                    <canvas style="height:100%;width:100%" id="line-chart"></canvas>
+                </div>
+            </div>
+        </section>
+        <!-- <section id="graph">
+            <div class="bg"></div> 
+            <div class="bg bg2"></div>
+            <div class="bg bg3"></div>
+            <canvas style="height:100%;width:100%" id="line-chart"></canvas>
+            </div>
+        </section>-->
+        <section id="footer">
+            <div class="content">
+                <h1 style="margin-bottom:.5em">END OF PAGE</h1><br>
+                <button id="btn" onclick="topFunction()">Back To Top</button>
+            </div>
+        </section>
+        
+        
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@4.2.1/dist/chart.umd.min.js"></script>
+        
+        <script>
+            new Chart(document.getElementById("line-chart"), {
+                type : 'line',
+                data : {
+                    labels : [ 1500, 1600, 1700, 1750, 1800, 1850,
+                            1900, 1950, 1999, 2022 ],
+                    datasets : [
+                            {
+                                data : [ 186, 205, 1321, 1516, 2107,
+                                        2191, 3133, 3221, 4783, 4478 ],
+                                label : "Name",
+                                borderColor : "#000000",
+                                backgroundColor: '#dddddd',
+                                color : "#000000",
+                                fill : false
+                            }]
+                },
+                options : {
+                    title : {
+                        display : true,
+                        text : 'Count of Name of the Years'
+                    }
+                }
+            });
+
+            let mybutton = document.getElementById("btn");
+
+            function topFunction() {
+                document.body.scrollTop = 0; 
+                document.documentElement.scrollTop = 0; 
+            }
+        </script>
+        <script id="rendered-js">
+            
+            $(document).ready(function () {
+                tippy('.tippy', {
+                theme: 'light',
+                size: 'big',
+                arrow: true });
+            
+            });
+            //# sourceURL=pen.js
+                
+        </script>
+        <script src="https://unpkg.com/tippy.js@1.1.3/dist/tippy.min.js"></script>
+        <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-2c7831bb44f98c1391d6a4ffda0e1fd302503391ca806e7fcc7b9b87197aec26.js"></script>
+        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+    </body>
+</html>

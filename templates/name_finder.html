@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+		<link rel="icon" href="{{ url_for('static', filename='images/logo.png') }}">
+		<title>Baby Name Finder</title>
+        {% set css_file = theme %}
+        <link rel="stylesheet" href="{{ url_for('static', filename=css_file) }}" id="theme">
+         <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/name_finder.css') }}">
+	</head>
+    <body>    
+        {% include 'nav.html' %}
+        <section id="one">
+            <form action="{{ url_for('name_finder_page')}}" method="POST" name="myForm">
+                <span class="content-1">
+                    <h1>Who Are<h1 style="color:var(--r-link-color);text-decoration-line: underline;margin-left:.2em">You</h1><h1>?</h1></h1><br>
+                </span>
+                <br>
+                <span class="content-2">
+                    <input name="prompt" type="text" placeholder="{{placeholder}}" required>
+                    <br>
+                    <select name="gender" required placeholder="What Gender is Your Baby?">
+                        <option>Boy</option>
+                        <option>Girl</option>
+                        <option>Unknown</option>
+                    </select><br>
+                    <button type="submit" value="Submit">Submit<span class="load loading"></span></button><!-- add loading animation (also add to presentation)-->
+                </span>
+            </form>
+        </section>
+        <script>
+            //const btns = document.querySelectorAll('button');
+            //btns.forEach((items)=>{
+            //    items.addEventListener('click',(evt)=>{
+            //        evt.target.classList.add('activeLoading');
+            //    })   
+            //})
+            const btns = document.querySelectorAll('button');
+            btns.forEach((button) => {
+                const input = button.closest('form').querySelector('input[name="prompt"]');
+                button.addEventListener('click', (evt) => {
+                if (input.value !== '') {
+                    evt.target.classList.add('activeLoading');
+                } else {
+                    evt.preventDefault(); // prevent form submission if input is empty
+                    alert('Please Enter Something About you...')
+                }
+                });
+            });
+        </script>
+    </body>
+</html

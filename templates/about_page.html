@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+		<link rel="icon" href="{{ url_for('static', filename='images/logo.png') }}">
+		<title>About Us</title>
+        {% set css_file = theme %}
+        <link rel="stylesheet" href="{{ url_for('static', filename=css_file) }}" id="theme">
+         <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/about-contact_page.css') }}">
+	</head>
+    <body> <!-- ! make so it uses templates (extended) -->
+        <section id="one">              <!-- section one -->  
+            {% include 'nav.html' %}        <!-- includes the navbar -->
+            <div class="row-1">             <!-- row -->    
+                <div class="col-1">     
+                    <h1>About Us</h1>
+                    <h1 class="text_info" style="font-size:3em">Where Technology Meets Tradition.</h1>
+                    <p class="text_para" >Ai Baby Name Generator is a cutting-edge company dedicated to helping new parents find the perfect name for their little one. Using state-of-the-art artificial intelligence technology, our website creates unique and personalized baby names based on a variety of criteria. Whether you're looking for a classic name with a modern twist or a completely unique moniker, Ai Baby Name Generator is the ultimate resource for all your baby naming needs.</p> 
+                    <a href="/name finder" class="btn" >Try It Out  &#8594</a>
+                </div>
+                <div class="col-2">
+                    <img src={{ img }}>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>

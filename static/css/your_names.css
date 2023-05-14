@@ -1,0 +1,378 @@
+@import 'theme/template/exposer.scss';
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {background: var(--r-background-color);}  /* padding: 0;*/
+
+.wrap {
+  display: flex;
+  font-size: 0; 
+  height: 100vh; 
+  width:  100vw;
+  overflow: hidden;
+  margin: 0;
+}
+
+.wrap .col {    
+  min-height: 100px;
+  background: #eee;
+  width: 100%;
+  -webkit-transition: ease-in-out all 1s;
+  transition: ease-in-out all 1s;
+  height: 100%;
+  max-height: 100vh;
+  /* word-wrap: break-word; */
+  /* vertical-align: top; */
+  text-align: center;
+  transition: 1s all ease-in-out;
+}
+
+.wrap .col p {
+  text-size-adjust: 50%;
+}
+
+.wrap .col h1 {
+  font-size: 3rem;
+}
+
+.wrap .col:hover p {
+  opacity: 1;
+  top: 50%;
+  transform: translateY(0%);
+  transition: ease-in-out all .5s;
+}
+
+.wrap .col:not(:hover) p {
+  opacity: 0;
+  top: 150%;
+  transform: translateY(100%); /*100%*/
+  transition: ease-in-out all .25s;
+}
+
+.wrap .col:hover h1 {
+  position: relative;
+  margin-top: 3%;
+  top: 0%;
+  transform: translateY(0%);
+  transition: ease-in-out all .5s;
+}
+
+.wrap .col:not(:hover) h1 {
+  /* margin-top: 70%; needed */
+  position: relative;
+  top: 50%;
+  transform: translateY(-47%);
+  transition: ease-in-out all .5s;
+}
+
+.wrap .col:hover .gender {
+  opacity: 1;
+  margin-top: 5%;
+  top: 50%;
+  font-size: 1.5rem;
+  transform: translateY(0%);
+  transition: ease-in-out all .5s;
+}
+.wrap .col:not(:hover) .gender {
+  opacity: 0;
+  top: 150%;
+  margin-top: 5%;
+  transform: translateY(100%);
+  transition: ease-in-out all .25s;
+}
+.wrap .col:hover .origin {
+  opacity: 1;
+  top: 50%;
+  display: inline-block;
+  line-break: none;
+  line-height: 0%;
+  font-size: 1.5rem;
+  transform: translateY(0%);
+  transition: ease-in-out all .5s;
+}
+
+.wrap .col:not(:hover) .origin {
+  opacity: 0;
+  top: 150%;
+  transform: translateY(100%);
+  transition: ease-in-out all .25s;
+}
+.wrap .col .origin p, .wrap .col .gender p {
+  font-size: 1.5rem;
+}
+
+ 
+h1 {
+  padding-top: 3%;
+  /* font-size: 2em; */
+  margin: var(--r-heading-margin);
+  font: var(--r-heading-font);
+  color: var(--r-heading-color);
+  line-height: var(--r-heading-line-height);
+  letter-spacing: var(--r-heading-letter-spacing);
+  font-weight: var(--r-heading-font-weight);
+  text-transform: var(--r-heading-text-transform);
+  text-shadow: var( --r-heading-text-shadow);
+}
+
+p {
+  font: var(--r-main-font);
+  color: var(--r-main-color);
+} 
+
+.wrap .col:not(:hover) button {
+  opacity: 0;
+  top: 150%;
+  margin-top: 2.5%;
+  transform: translateY(100%);
+  transition: ease-in-out all .25s;
+}
+
+.wrap .col button {
+  position: relative;
+  transition: all .5s ease;
+  overflow: hidden;
+  display:inline-block;
+  font: var(--r-main-font);
+  color: var(--r-background-color);
+  background: var(--r-main-color);
+  border: none;
+  font-size: 1.5rem;
+  border-radius: .25rem;
+  margin-bottom: 3%;
+  padding: .75rem 2.5rem;
+  opacity: 1;
+}
+
+.wrap .col:hover:nth-child(even) button:hover {
+  margin-top: 1%;
+  padding: 1.25rem 3rem;
+  background-color: var(--r-background-color);
+  color: var(--r-main-color);
+  transition: ease-in-out all 1s;
+  cursor: pointer;
+}
+
+.wrap .col:hover:nth-child(odd) button:hover {
+  margin-top: 1%;
+  padding: 1.25rem 3rem;
+  background-color: var(--r-link-color);
+  color: var(--r-main-color);
+  transition: ease-in-out all 1s;
+  cursor: pointer;
+}
+
+.wrap .col:hover button {
+  opacity: 1;
+  margin-top: .5em;
+  margin-bottom: 3%;
+  top: 50%;
+  transform: translateY(0%);
+  transition: ease-in-out all .5s;
+}
+
+div.wrap > div:nth-child(even) {
+  background: var(--r-link-color);
+}
+div.wrap > div:nth-child(odd) {
+  background: var(--r-background-color);
+}
+.wrap .col:hover {
+  width: 350%;
+  transition: 1s all ease-in-out;
+}
+
+div.wrap > div:hover {
+  width: 50%;  
+  transition: 1s all ease-in-out;  
+}
+
+.wrap .col:only-child:hover {
+  width: 100%;
+  transition: 1s all ease-in-out;
+}
+
+
+
+
+.load {
+  position: absolute;
+  top: -30%;
+  right: -25%;
+  width: 100%;
+  height: 100%;
+  background: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: inherit
+}
+
+.load::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  border: 3px solid var(--r-main-color);
+  width: 30px;
+  height: 30px;
+  border-left: 3px solid transparent;
+  border-bottom: 3px solid transparent;
+  animation: loading1 1s ease infinite;
+  z-index: 10
+}
+
+.load::before {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  border: 3px dashed var(--r-main-color);
+  width: 30px;
+  height: 30px;
+  border-left: 3px solid transparent;
+  border-bottom: 3px solid transparent;
+  animation: loading1 2s linear infinite;
+  z-index: 5
+}
+
+@keyframes loading1 {
+  0% {
+      transform: rotate(0deg)
+  }
+
+  100% {
+      transform: rotate(360deg)
+  }
+}
+
+button.active {
+  transform: scale(.85);
+  
+}
+
+button:active, button:hover {
+  background-color: var(--r-link-color-hover);
+}
+
+button.activeLoading .loading {
+  visibility: visible;
+  opacity: 1;
+  padding: 1.25rem 3rem;
+}
+
+button .loading {
+  opacity: 0;
+  visibility: hidden
+}
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 768px) { /*breakpoint*/
+  
+  .wrap .col {
+    display: block;
+    height: auto;
+    width: 100%;
+    -webkit-transition: all 1s;
+    transition: all 1s;
+  }
+  .wrap .col:hover {
+    width: 100%;
+    height: max-content;
+  }
+  .wrap .col:hover h1 {
+     margin-top: 3%;
+  }
+  .wrap .col:hover button {
+    margin-top: 3%;
+    margin-bottom: 6%;
+  }
+  .wrap .col:not(:hover) h1 {
+    position: relative;
+    top: 50%;
+    padding-top: 100%;
+    transform: translateY(-50%);
+    transition: ease-in-out all .5s;
+  }
+  .wrap {
+    display: inline-block;
+    font-size: 0; 
+    height: max-content;
+    width:  100%;
+    overflow: hidden;
+    margin: 0;
+  }
+  div.wrap > div:hover {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}       
+::-webkit-scrollbar-track {
+  background-color: var(--r-background-color);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--r-link-color);
+  cursor: pointer;
+  height: 60px;
+}
+
+.container {
+    font-size: 0; 
+    height: 100vh; 
+    width:  100vw;
+    overflow: hidden;
+    margin: 0;
+}
+
+
+.section {
+  font-size: 5vh;
+  display: inline-block;
+  vertical-align: top;
+  text-align: center;
+  border: 1px red solid;
+  box-sizing: border-box;
+  word-wrap: break-word;
+  height: 100%;
+  max-height: 100vh;
+}
+
+.section .column {
+    font-size: 5vh;
+    vertical-align: top;
+    text-align: center;
+    border: 1px red solid;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    display: none;
+    height: 100%;
+}
+
+
+
+
+
+
+
+.wrap .col form {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  top: 50%;
+
+}
