@@ -139,7 +139,7 @@ class Main():
         msg['From'] = 'BabyNameAI'
         msg['To'] = str(name)
 
-        html = open('templates\email.html').read()
+        html = open('/workspaces/babyname-generator/templates/email.html').read()
 
         html = BeautifulSoup(html, features="html.parser")
         html = html.prettify()

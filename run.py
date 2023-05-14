@@ -8,13 +8,20 @@ from main_ai import Main
 from main_db import DATA
 from data_source import DataSource
 from urllib import request as request_url
+from honeybadger.contrib import FlaskHoneybadger
+
+#hbp_MYOQ2R1pf24h8CnVXiXCtQbYv8Bijm4yNgCZ
 
 db = DATA()
 ai = Main() 
 
 data = DataSource()
 app = Flask(__name__)            
-app.config['SECRET_KEY'] = 'gkrelhrkegkfderjkghfdfdjwknhdjfgrgwfjegfwehjrg' 
+app.config['HONEYBADGER_ENVIRONMENT'] = 'production'
+app.config['HONEYBADGER_API_KEY'] = 'hbp_MYOQ2R1pf24h8CnVXiXCtQbYv8Bijm4yNgCZ'
+app.config['HONEYBADGER_PARAMS_FILTERS'] = 'password, secret, credit-card'
+FlaskHoneybadger(app, report_exceptions=True)
+
 
 theme = 'css/dist/theme/blood.css'
 
