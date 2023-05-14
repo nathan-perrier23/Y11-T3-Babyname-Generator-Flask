@@ -1,4 +1,4 @@
-Steps to run the App:
+Steps to run the App: 
 
 1. save folder to desktop, making sure the file is not in a zip folder
 
