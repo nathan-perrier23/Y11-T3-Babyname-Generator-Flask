@@ -67,8 +67,10 @@ class Main():
         
         if matches: pass
         else:
-            regex = re.compile(r"(\d+)\.\s*([^\s:]+)\s*[:\-]\s*(.*)", re.MULTILINE) #r'(?P<order>\d+)\. (?P<name>[^–]+)–\s(?P<description>.+?)(?=\d+\.|\Z)'
-            matches = regex.findall(names)
+            try:
+                regex = re.compile(r"(\d+)\.\s*([^\s:]+)\s*[:\-]\s*(.*)", re.MULTILINE) #r'(?P<order>\d+)\. (?P<name>[^–]+)–\s(?P<description>.+?)(?=\d+\.|\Z)'
+                matches = regex.findall(names)
+            except: pass
             
         print(matches)
 
