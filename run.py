@@ -2,15 +2,16 @@ from flask import *
 import sqlite3
 from sqlite3 import Error
 import os, sys
-import json
+import json #hello
 import random
-from . import main_ai as Main_ai
+from main_ai import Main
 from main_db import DATA
 from data_source import DataSource
 from urllib import request as request_url
 
 db = DATA()
-ai = Main_ai.Main() 
+ai = Main() 
+
 data = DataSource()
 app = Flask(__name__)            
 app.config['SECRET_KEY'] = 'gkrelhrkegkfderjkghfdfdjwknhdjfgrgwfjegfwehjrg' 
