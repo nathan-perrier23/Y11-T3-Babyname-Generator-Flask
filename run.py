@@ -4,7 +4,7 @@ from sqlite3 import Error
 import os, sys
 import json
 import random
-from ai import main_ai
+from . import main_ai
 from main_db import DATA
 from data_source import DataSource
 from urllib import request as request_url
