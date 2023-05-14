@@ -1,6 +1,5 @@
 # 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
 import openai
-import tiktoken
 import os
 import re
 import json
@@ -38,12 +37,7 @@ class Main():
             print(response)
         except: response='static\images\baby.jfif'
         return response
-    
-    def num_tokens_from_string(self, string: str, encoding_name: str) -> int:
-        """Returns the number of tokens in a text string."""
-        encoding = tiktoken.get_encoding(encoding_name)
-        num_tokens = len(encoding.encode(string))
-        return num_tokens
+   
     
     def get_text(self, prompt):
         response = openai.Completion.create( 
