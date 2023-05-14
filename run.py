@@ -4,13 +4,13 @@ from sqlite3 import Error
 import os, sys
 import json
 import random
-from . import main_ai
+from . import main_ai as Main_ai
 from main_db import DATA
 from data_source import DataSource
 from urllib import request as request_url
 
 db = DATA()
-ai = Main() 
+ai = Main_ai.Main() 
 data = DataSource()
 app = Flask(__name__)            
 app.config['SECRET_KEY'] = 'gkrelhrkegkfderjkghfdfdjwknhdjfgrgwfjegfwehjrg' 
