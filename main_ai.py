@@ -30,7 +30,7 @@ class Main():
             )
             response = response['data'][0]['url']
             print(response)
-        except: response='static\images\baby.jfif'
+        except: response='../static/images/fallback-img.jpg'
         return response
    
     

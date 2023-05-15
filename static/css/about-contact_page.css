@@ -66,8 +66,11 @@ h1 {
     padding: 0;
     right: 0;
     border: none;
-    filter: invert(90%) hue-rotate(180deg);
     object-fit: cover;
+}
+
+iframe {
+    filter: invert(90%) hue-rotate(180deg);
 }
 
 .text_info
