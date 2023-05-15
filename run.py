@@ -114,7 +114,7 @@ def thanks():
             return render_template("form1.html", theme=theme, template="template-form1-2.html", display1="none", display2="none", display3="none", display4="none", display5="none", display6="none", display7="none", display8="none", display9="none", display10="block",  display11="block", title="Thank You", header=('Thanks ' + request.form['name'] + ' For Contacting Us!'), s_header='We will get back to you shortly!')
         return not_acceptable(406,'Input a valid email -', 'Invalid Email')
     except:
-        return bad_request(400) #test
+        return bad_request(400)
     
 @app.route("/notes")
 def notes():
