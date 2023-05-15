@@ -13,7 +13,7 @@ from urllib.request import urlopen
 from bs4 import BeautifulSoup
 
 
-openai.api_key = "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" #! ISSUE WITH API KEY
+openai.api_key = "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" 
 GMAIL_SECRET_KEY = 'leoijzvqxsmpzngp'
 
 class Main():
