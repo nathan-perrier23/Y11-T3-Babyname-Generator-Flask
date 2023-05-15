@@ -1,10 +1,13 @@
 # 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
 import openai
+import os
 import re
 import json
 import urllib.request as request_url
 
 from data import Data
+
+from sqlite3 import Error
 
 import smtplib, ssl
 from email.mime.multipart import MIMEMultipart
@@ -13,7 +16,7 @@ from urllib.request import urlopen
 from bs4 import BeautifulSoup
 
 
-openai.api_key = "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"
+openai.api_key = "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"
 GMAIL_SECRET_KEY = 'leoijzvqxsmpzngp'
 
 class Main():
@@ -36,20 +39,20 @@ class Main():
     
     def get_text(self, prompt):
         response = openai.Completion.create( 
-        model="text-davinci-003",
-        prompt=prompt,
-        temperature=0.05, 
-        max_tokens=300, 
-        top_p=1, 
-        frequency_penalty=0.25,
-        presence_penalty=0
+            model="text-davinci-003",
+            prompt=prompt,
+            temperature=0.05, 
+            max_tokens=300, 
+            top_p=1, 
+            frequency_penalty=0.25,
+            presence_penalty=0
         )
         return response['choices'][0]['text']
     
-    def get_babynames(self, prompt, gender): #TODO impliment token limitation -- make sure prompt is perfect
+    def get_babynames(self, prompt, gender): 
         names = self.get_text(("What " + gender + " baby names best suit this person (provide detailed reasoning)(max 5 names, min 2 names)" + prompt))
 
-        print(names)
+        print('NAMES:', names)
         
         # Define a regular expression pattern to match the numbered order, name, and description
         #? patter = ' #r'(\d+)\. (\w+) - (.+)'
@@ -62,10 +65,8 @@ class Main():
         
         if matches: pass
         else:
-            try:
-                regex=re.compile(r"(\d+)\.\s*([^\s:]+)\s*[:\-]\s*(.*)",re.MULTILINE) 
-                matches = regex.findall(names)
-            except: pass
+            regex = re.compile(r"(\d+)\.\s*([^\s:]+)\s*[:\-]\s*(.*)", re.MULTILINE) #r'(?P<order>\d+)\. (?P<name>[^–]+)–\s(?P<description>.+?)(?=\d+\.|\Z)'
+            matches = regex.findall(names)
             
         print(matches)
 
@@ -88,6 +89,8 @@ class Main():
             descriptions.append(value[1]) 
             
         return keys, names_list, descriptions
+        
+    
         
     def get_name_data_ai(self, name, genders, origins):
         url = "https://www.behindthename.com/api/lookup.json/?name=" + name + "&key=na759038243"  #TODO pass through url
