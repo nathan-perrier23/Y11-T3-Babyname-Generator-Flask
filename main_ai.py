@@ -38,7 +38,7 @@ class Main():
         response = openai.Completion.create( 
             model="text-davinci-003",
             prompt=prompt,
-            temperature=0.05, 
+            temperature=0.25, #EXPERIMENT WITH TEMP!
             max_tokens=300, 
             top_p=1, 
             frequency_penalty=0.25,
