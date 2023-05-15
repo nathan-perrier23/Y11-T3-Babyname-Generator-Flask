@@ -226,7 +226,7 @@
 					</section>
 					<section data-auto-animate>
 						<h2 data-id="code-title">Python - Run.py</h2>
-						<pre data-id="code-animation"><code class="hljs Python" data-trim data-line-numbers="|1-6,8-10|12-16|21-27|30-43|"><script type="text/template">
+						<pre data-id="code-animation"><code class="hljs python" data-trim data-line-numbers="|1-6,8-10|12-16|21-27|30-43|"><script type="text/template">
 							from flask import *		#imports nessesary modules
 							import random
 							from main_ai import Main
@@ -415,17 +415,12 @@
 		<script src="{{ url_for('static', filename='js/plugin/markdown/markdown.js') }}"></script>
 		<script src="{{ url_for('static', filename='js/plugin/highlight/highlight.js') }}"></script>
 		<script>
-			// More info about initialization & config:
-			// - https://revealjs.com/initialization/
-			// - https://revealjs.com/config/
 			Reveal.initialize({
 				plugins: [ RevealNotes ],
 				controls: true,
 				progress: true,
 				center: true,
 				hash: true,
-
-				// Learn about plugins: https://revealjs.com/plugins/
 				plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
 			});
 			function setTheme(theme) {
