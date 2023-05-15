@@ -44,9 +44,13 @@ def name():
 @app.route("/Fact Page", methods=['GET', 'POST']) 
 def fact_page():
     if request.method == 'POST':
-        name_dict, graph_dict = data.get_data(request.form['baby_name'], ('boys' if request.form['baby_gender'] == 'male' else 'girls'))
-        gender = (request.form['baby_gender'].capitalize() if (request.form['baby_gender'].capitalize() == 'Male' or request.form['baby_gender'].capitalize() == 'Female') else 'Unisex')
-        return render_template("fact_page.html", theme=theme, name=request.form['baby_name'].capitalize() , desc=request.form['baby_desc'], gender=gender.capitalize(), origin=request.form['baby_origin'], img=ai.get_img(random.choice(['family', 'kids', 'baby', 'child'])), name_dict=name_dict, graph_dict=graph_dict)
+        try:
+            name_dict, graph_dict = data.get_data(request.form['baby_name'], ('boys' if request.form['baby_gender'] == 'male' else 'girls'))
+            gender = (request.form['baby_gender'].capitalize() if (request.form['baby_gender'].capitalize() == 'Male' or request.form['baby_gender'].capitalize() == 'Female') else 'Unisex')
+            return render_template("fact_page.html", theme=theme, name=request.form['baby_name'].capitalize() , desc=request.form['baby_desc'], gender=gender.capitalize(), origin=request.form['baby_origin'], img=ai.get_img(random.choice(['family', 'kids', 'baby', 'child'])), name_dict=name_dict, graph_dict=graph_dict)
+        except Exception as e: 
+            print(e)
+            return bad_request(400)
     return bad_request(400)
     
 @app.route("/name finder", methods=['GET', 'POST']) 
@@ -62,18 +66,24 @@ def about_page(): return render_template("about_page.html", theme=theme, img=ai.
 @app.route("/boy names", methods=['GET', 'POST'])
 def top_100_boy_page(gender='Boy'):
     if request.method == "POST": 
-        print(request.form['name']) #*check if works one fact page is fully done
-        name_dict, graph_dict = data.get_data(request.form['name'], 'boys')
-        return render_template("fact_page.html", theme=theme, name=request.form['name'], gender=gender, desc=ai.get_text('what type of person would best suit the name ' + request.form['name']), img=ai.get_img(random.choice(['family', 'kids', 'baby', 'child'])), name_dict=name_dict, graph_dict=graph_dict)
+        try:
+            name_dict, graph_dict = data.get_data(request.form['name'], 'boys')
+            return render_template("fact_page.html", theme=theme, name=request.form['name'], gender=gender, desc=ai.get_text('what type of person would best suit the name ' + request.form['name']), img=ai.get_img(random.choice(['family', 'kids', 'baby', 'child'])), name_dict=name_dict, graph_dict=graph_dict)
+        except Exception as e: 
+            print(e)
+            return bad_request(400)
     names, counts = ai.get_100_names(gender)
     return render_template("top_100.html", theme=theme, gender=gender, action='top_100_boy_page', names=names, counts=counts)
 
 @app.route("/girl names", methods=['GET', 'POST'])
 def top_100_girl_page(gender='Girl'):
     if request.method == "POST": 
-        print(request.form['name'])
-        name_dict, graph_dict = data.get_data(request.form['name'], 'girls')
-        return render_template("fact_page.html", theme=theme, name=request.form['name'], desc=ai.get_text('what type of person would best suit the name ' + request.form['name']), img=ai.get_img(random.choice(['family', 'kids', 'baby', 'child'])), name_dict=name_dict, graph_dict=graph_dict)
+        try:
+            name_dict, graph_dict = data.get_data(request.form['name'], 'girls')
+            return render_template("fact_page.html", theme=theme, name=request.form['name'], desc=ai.get_text('what type of person would best suit the name ' + request.form['name']), img=ai.get_img(random.choice(['family', 'kids', 'baby', 'child'])), name_dict=name_dict, graph_dict=graph_dict)
+        except Exception as e: 
+            print(e)
+            return bad_request(400)
     names, counts = ai.get_100_names(gender)
     return render_template("top_100.html", theme=theme, gender=gender, action='top_100_girl_page', names=names, counts=counts)
 
