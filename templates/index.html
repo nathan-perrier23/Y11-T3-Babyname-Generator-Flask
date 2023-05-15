@@ -84,7 +84,7 @@
 						<h1 style="font-size:3em;">Success Criteria</h1>
 					</section>
 					<section data-auto-animate>
-						<img class="img-colour" src="{{ url_for('static', filename='images/images for folio/criteria.png')}}">
+						<img src="{{ url_for('static', filename='images/images for folio/criteria.png')}}">
 					</section>
 				</section>
 				<section id="slide-5">
@@ -214,15 +214,41 @@
 				</section>
 				<section id="slide-13">
 					<section>
-						<h1 style="font-size:3em;">Algorithms (Pseudocode)</h1>
+						<h1 style="font-size:3em;">Algorithms</h1>
 					</section>
 					<section data-auto-animate>
-						<h2>Run.py</h2>
+						<h2 data-id="code-title">Python - Run.py</h2>
+						<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers="|1-9|11-13|15-19|21|"><script type="text/template">
+							BEGIN
+
+							//import libraries from the flask module
+							FROM flask IMPORT *
+							IMPORT random
+							FROM main_ai IMPORT Main
+							FROM main_db IMPORT DATA
+							FROM data_source IMPORT DataSource
+							FROM honeybadger.contrib IMPORT FlaskHoneybadger
+
+							SET db = DATA()
+							SET ai = Main() 
+							SET data = DataSource()
+
+							SET app = flask application object of python module
+							CONFIGURE 'HONEYBADGER_ENVIRONMENT' TO ‘production’
+							CONFIGURE 'HONEYBADGER_API_KEY' TO 'hbp_MYOQ2R1pf24h8CnVXiXCtQbYv8Bijm4yNgCZ'
+							CONFIGURE 'HONEYBADGER_PARAMS_FILTERS' TO 'password, secret, credit-card'
+							INITIATE FlaskHoneybadger WITH application object AND report_exceptions AS True
+
+							SET theme = 'css/dist/theme/blood.css'
+
+							END
+						</script></code></pre>
+						<!--CHANGE OUT AUDIO!! --><audio controls><source src="{{ url_for('static', filename='audio/1.m4a') }}" type="audio/mp4"></audio>
 					</section>
 				</section>
 				<section id="slide-14">
 					<section>
-						<h1 style="font-size:3em;">generate section?</h1>
+						<h1 style="font-size:3em;">Generate Section</h1>
 					</section>
 					<section data-auto-animate>
 						<h2 data-id="code-title">Python - Run.py</h2>
@@ -327,7 +353,7 @@
 				</section>
 				<section id="slide-16">
 					<section>
-						<h1 style="font-size:3em;">user testing of created Prototype (needed?)</h1>
+						<h1 style="font-size:3em;">User Testing</h1>
 					</section>
 					<section data-auto-animate>
 						<img src="{{ url_for('static', filename='images/images for folio/user_testing.png')}}">
@@ -344,9 +370,13 @@
 				</section>
 				<section id="slide-18">
 					<section>
-						<h1 style="font-size:3em;">evaluation of sdc and pc</h1>
+						<h1 style="font-size:3em;">evaluation of Criteria</h1>
 					</section>
 					<section data-auto-animate>
+						<img src="{{ url_for('static', filename='images/images for folio/criteria_checklist.png')}}">
+						<!--CHANGE OUT AUDIO!! --><audio controls><source src="{{ url_for('static', filename='audio/1.m4a') }}" type="audio/mp4"></audio>
+					</section>
+					<section>
 						<h2>describe if or if not the criteria was fullfield should be based on data (user and self feedback)</h2>
 					</section>
 				</section>
