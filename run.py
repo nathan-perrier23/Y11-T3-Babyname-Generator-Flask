@@ -7,8 +7,8 @@ from honeybadger.contrib import FlaskHoneybadger
 
 db = DATA()
 ai = Main() 
-
 data = DataSource()
+
 app = Flask(__name__)            
 app.config['HONEYBADGER_ENVIRONMENT'] = 'production'
 app.config['HONEYBADGER_API_KEY'] = 'hbp_MYOQ2R1pf24h8CnVXiXCtQbYv8Bijm4yNgCZ'

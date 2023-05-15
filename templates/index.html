@@ -225,9 +225,59 @@
 						<h1 style="font-size:3em;">generate section?</h1>
 					</section>
 					<section data-auto-animate>
+						<h2 data-id="code-title">Python - Run.py</h2>
+						<pre data-id="code-animation"><code class="hljs Python" data-trim data-line-numbers="|1-6,8-10|12-16|21-27|30-43|"><script type="text/template">
+							from flask import *		#this is a comment
+							import random
+							from main_ai import Main
+							from main_db import DATA
+							from data_source import DataSource
+							from honeybadger.contrib import FlaskHoneybadger
+
+							db = DATA()
+							ai = Main() 
+							data = DataSource()
+
+							app = Flask(__name__)            
+							app.config['HONEYBADGER_ENVIRONMENT'] = 'production'
+							app.config['HONEYBADGER_API_KEY'] = 'hbp_MYOQ2R1pf24h8CnVXiXCtQbYv8Bijm4yNgCZ'
+							app.config['HONEYBADGER_PARAMS_FILTERS'] = 'password, secret, credit-card'
+							FlaskHoneybadger(app, report_exceptions=True)
+
+							theme = 'css/dist/theme/blood.css'
+
+
+							@app.route("/", methods=['GET', 'POST']) 
+							def index():
+								global theme
+								try: theme = request.get_json()['theme_url'].replace('static/', '')
+								except Exception as e: print(e)
+								if request.method == "POST": return name() 
+								return render_template("index.html", theme=theme, placeholder="e.g. likes, interests, favourite things...")  
+								
+
+							@app.route("/Your Baby Name", methods=['GET', 'POST']) #shows the name and will have a button that will send to a page with facts and data or a button to show similar names
+							def name(): 
+								genders, origins = [], {}
+								try: 
+									keys, names, descriptions = ai.get_babynames(request.form['prompt'], (request.form['gender'] if request.form['gender'] != 'unknown' else 'boy and girl'))
+									if len(keys) == 0: print('\n', '-------------- Invalid Input ---------------', '\n'); return not_acceptable(406,'Input a valid prompt -', 'Invalid Prompt')
+									else:
+										for name in names:
+											try: genders, origins = ai.get_name_data_ai(name, genders, origins)      
+											except Exception as e: print(e)
+										return render_template("your_names.html", theme=theme, keys=keys, names=names, descriptions=descriptions, origins=origins, genders=genders)
+								except Exception as e: 
+									print('\n', '-------------------------- Issue retrieving names ----------------------------', '\n', e, '\n')
+									return not_acceptable(406,'Issue retrieving names -', 'OpenAI API Error')
+
+						</script></code></pre>
+						<!--CHANGE OUT AUDIO!! --><audio controls><source src="{{ url_for('static', filename='audio/1.m4a') }}" type="audio/mp4"></audio>
+					</section>
+					<section>
 						<h2 data-id="code-title">JavaScript</h2>
 						<pre data-id="code-animation"><code class="hljs javascript" data-trim data-line-numbers="|4,8-11|17|22-24"><script type="text/template">
-							import React, { useState } from 'react';
+							import React, { useState } from 'react'; //this is a comment
 
 							function Example() {
 							const [count, setCount] = useState(0);
@@ -270,6 +320,9 @@
 								<img style="width:100%;height:100%" src="{{ url_for('static', filename='images/images for folio/interface2-e.png')}}">
 							</div>
 						</span>
+						<div style="z-index:3;position:relative;margin-top:65%">
+							<!--CHANGE OUT AUDIO!! --><audio controls><source src="{{ url_for('static', filename='audio/1.m4a') }}" type="audio/mp4"></audio>
+						</div>
 					</section>
 				</section>
 				<section id="slide-16">
