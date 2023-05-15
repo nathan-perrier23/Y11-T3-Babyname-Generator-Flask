@@ -1,13 +1,10 @@
 # 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
 import openai
-import os
 import re
 import json
 import urllib.request as request_url
 
 from data import Data
-
-from sqlite3 import Error
 
 import smtplib, ssl
 from email.mime.multipart import MIMEMultipart
@@ -16,7 +13,7 @@ from urllib.request import urlopen
 from bs4 import BeautifulSoup
 
 
-openai.api_key = "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"
+openai.api_key = "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" #! ISSUE WITH API KEY
 GMAIL_SECRET_KEY = 'leoijzvqxsmpzngp'
 
 class Main():

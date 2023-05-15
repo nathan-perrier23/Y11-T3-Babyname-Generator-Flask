@@ -1,13 +1,8 @@
 from flask import *
-import sqlite3
-from sqlite3 import Error
-import os, sys
-import json 
 import random
 from main_ai import Main
 from main_db import DATA
 from data_source import DataSource
-from urllib import request as request_url
 from honeybadger.contrib import FlaskHoneybadger
 
 db = DATA()
