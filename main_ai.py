@@ -1,15 +1,10 @@
 # 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
 import openai
-import os
 import re
 import json
 import urllib.request as request_url
 
 from data import Data
-
-from sqlite3 import Error
-
-import numpy as np
 
 import smtplib, ssl
 from email.mime.multipart import MIMEMultipart
@@ -93,13 +88,6 @@ class Main():
             descriptions.append(value[1]) 
             
         return keys, names_list, descriptions
-        
-    def valid_prompt(self, prompt):
-        #* answer = self.get_text(("does the following text descibe a person? yes/no" + prompt)) #is this prompt about the user's own personal traits (please answer yes or no only) 
-        answer = self.is_about_traits(prompt) #! do extensive testing
-        print(answer)  
-        return answer
-    
         
     def get_name_data_ai(self, name, genders, origins):
         url = "https://www.behindthename.com/api/lookup.json/?name=" + name + "&key=na759038243"  #TODO pass through url

@@ -34,16 +34,6 @@ def index():
 @app.route("/Your Baby Name", methods=['GET', 'POST']) #shows the name and will have a button that will send to a page with facts and data or a button to show similar names
 def name(): 
     genders, origins = [], {}
-    # if ai.valid_prompt(request.form['prompt']): 
-    #     try: 
-    #         keys, names, descriptions = ai.get_babynames(request.form['prompt'], (request.form['gender'] if request.form['gender'] != 'unknown' else 'boy and girl'))
-    #         for name in names:
-    #             print(name)
-    #             try: genders, origins = ai.get_name_data(name, genders, origins)      
-    #             except Exception as e: print(e)
-    #         return render_template("your_names.html", theme=theme, keys=keys, names=names, descriptions=descriptions, origins=origins, genders=genders, font_size=('2em' if len(keys) <=3 else ('1.5em' if len(keys) <= 5 else '1em')))
-    #     except: return not_acceptable(406,'Input a valid prompt -', 'Invalid Prompt')
-    # return not_acceptable(406,'Input a valid prompt -', 'Invalid Prompt')
     try: 
         keys, names, descriptions = ai.get_babynames(request.form['prompt'], (request.form['gender'] if request.form['gender'] != 'unknown' else 'boy and girl'))
         if len(keys) == 0: print('no names found'); return not_acceptable(406,'Input a valid prompt -', 'Invalid Prompt')
