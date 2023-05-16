@@ -1,13 +1,13 @@
 Steps to run the App: 
 
-1. save folder to desktop, making sure the file is not in a zip folder (file might be zipped twice)
+1. save the folder to the desktop, making sure the file is not in a zip folder (the file might be zipped twice)
 
 2. open requirements.txt and click the 'create environment...' button in the bottom right corner or press ctrl + shift + p
 
-    1. a pop-up should appear, click 'venv' as the envirornment type
-    2. then click python 3.8 or above as the base interpreter
+    1. a pop-up should appear, click 'venv' as the environment type
+    2. then click Python 3.8 or above as the base interpreter
     3. when it asks for dependencies to be installed, click 'requirements.txt', then press 'ok'
-    4. now the environment is being created (it can take awhile as all libaries are 
+    4. now the environment is being created (it can take a while as all libraries are 
     being downloaded) once it is completed move to STEP 4 
 
 3. if STEP 2 did not work, type type `pip install -r requirements.txt` in the terminal

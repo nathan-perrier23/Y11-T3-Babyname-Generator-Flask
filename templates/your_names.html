@@ -23,7 +23,7 @@
             {% for key in keys %}     
                 <div class="col">
                     <h1>{{ names[loop.index0] }}</h1>
-                    <p style="font-size: 1.85rem;">{{ descriptions[loop.index0] }}</p>
+                    <p style="font-size: 1.85rem;margin-left:.5em;margin-right:.5em">{{ descriptions[loop.index0] }}</p>
                     <p class="gender">Gender: {{genders[loop.index0]}}</p>
                     <p class="origin" style="margin:none">Origin:
                         {% for origin in origins[names[loop.index0]] %} 
