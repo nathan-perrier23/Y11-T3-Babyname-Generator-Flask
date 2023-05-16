@@ -198,7 +198,7 @@ div.wrap > div:hover {
 
 
 
-.load {
+.wrap .col:hover .load {
   position: absolute;
   top: -30%;
   right: -25%;
@@ -211,7 +211,7 @@ div.wrap > div:hover {
   border-radius: inherit
 }
 
-.load::after {
+.wrap .col:hover .load::after {
   content: '';
   position: absolute;
   border-radius: 50%;
@@ -224,7 +224,7 @@ div.wrap > div:hover {
   z-index: 10
 }
 
-.load::before {
+.wrap .col:hover .load::before {
   content: '';
   position: absolute;
   border-radius: 50%;
@@ -247,22 +247,22 @@ div.wrap > div:hover {
   }
 }
 
-button.active {
+.wrap .col:hover button.active {
   transform: scale(.85);
   
 }
 
-button:active, button:hover {
+.wrap .col:hover button:active, button:hover {
   background-color: var(--r-link-color-hover);
 }
 
-button.activeLoading .loading {
+.wrap .col:hover button.activeLoading .loading {
   visibility: visible;
   opacity: 1;
   padding: 1.25rem 3rem;
 }
 
-button .loading {
+.wrap .col:hover button .loading {
   opacity: 0;
   visibility: hidden
 }

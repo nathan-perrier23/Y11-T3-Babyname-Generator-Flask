@@ -53,7 +53,10 @@
             const btns = document.querySelectorAll('button');
             btns.forEach((items)=>{
                 items.addEventListener('click',(evt)=>{
+                    const addCSS = css => document.head.appendChild(document.createElement("style")).innerHTML=css;
                     evt.target.classList.add('activeLoading');
+                    addCSS(".wrap .col:hover:nth-child(even) button {padding: 1.25rem 3rem;background-color: var(--r-background-color);margin-top: 1%;}");
+                    addCSS(".wrap .col:hover:nth-child(odd) button {padding: 1.25rem 3rem;background-color: var(--r-link-color);margin-top: 1%;}");
                 })   
             })
         </script>
