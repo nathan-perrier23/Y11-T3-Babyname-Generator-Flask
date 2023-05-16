@@ -112,6 +112,11 @@ h1 {
     min-width: 60vw;
     background-color: var(--r-link-color);
 }
+
+#two .row-2 .col-1 iframe {
+    filter: invert(90%) hue-rotate(180deg);
+}
+
 #two .row-2 .col-1 .map-container {
     height: 100%;
     width: 100%;

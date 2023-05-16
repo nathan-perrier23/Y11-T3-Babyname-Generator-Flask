@@ -41,7 +41,6 @@ class DataSource:
         for h_name in names: 
             data = list(name_data[h_name])
             name_data_dict[h_name] = data[0] #issue?
-        print(graph_data_dict)
         return name_data_dict, graph_data_dict
     
     def get_data(self, name, gender):

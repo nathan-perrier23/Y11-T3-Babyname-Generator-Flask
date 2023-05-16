@@ -61,31 +61,31 @@ def name_finder_page():
     return render_template("name_finder.html", theme=theme, placeholder="e.g. likes, interests, favourite things...")
 
 @app.route("/about", methods=['GET', 'POST'])
-def about_page(): return render_template("about_page.html", theme=theme, img=ai.get_img(random.choice(['family', 'kids', 'baby', 'child'])))
+def about_page(): return render_template("about_page.html", theme=theme, img=ai.get_img(random.choice(['family', 'baby', 'child'])))
 
 @app.route("/boy names", methods=['GET', 'POST'])
-def top_100_boy_page(gender='Boy'):
+def top_100_boy_page(genders='Boy'):
     if request.method == "POST": 
         try:
             name_dict, graph_dict = data.get_data(request.form['name'], 'boys')
-            return render_template("fact_page.html", theme=theme, name=request.form['name'], gender=gender, desc=ai.get_text('what type of person would best suit the name ' + request.form['name']), img=ai.get_img(random.choice(['family', 'kids', 'baby', 'child'])), name_dict=name_dict, graph_dict=graph_dict)
+            return render_template("fact_page.html", theme=theme, name=request.form['name'], gender='Male', origin=ai.get_text(('what country does ' + request.form['name'] + ' originate from? (repsonce should only contain country)')), desc=ai.get_text('what type of person would best suit the name ' + request.form['name'] + ' (minimum 50 words)?'), img=ai.get_img('boy'), name_dict=name_dict, graph_dict=graph_dict)
         except Exception as e: 
             print(e)
             return bad_request(400)
-    names, counts = ai.get_100_names(gender)
-    return render_template("top_100.html", theme=theme, gender=gender, action='top_100_boy_page', names=names, counts=counts)
+    names, counts = ai.get_100_names(genders)
+    return render_template("top_100.html", theme=theme, gender=genders, action='top_100_boy_page', names=names, counts=counts)
 
 @app.route("/girl names", methods=['GET', 'POST'])
-def top_100_girl_page(gender='Girl'):
+def top_100_girl_page(genders='Girl'):
     if request.method == "POST": 
         try:
             name_dict, graph_dict = data.get_data(request.form['name'], 'girls')
-            return render_template("fact_page.html", theme=theme, name=request.form['name'], desc=ai.get_text('what type of person would best suit the name ' + request.form['name']), img=ai.get_img(random.choice(['family', 'kids', 'baby', 'child'])), name_dict=name_dict, graph_dict=graph_dict)
+            return render_template("fact_page.html", theme=theme, name=request.form['name'], gender='Female', origin=ai.get_text(('what country does ' + request.form['name'] + ' originate from? (repsonce should only contain country)')), desc=ai.get_text('what type of person would best suit the name ' + request.form['name'] + ' (minimum 50 words)?'), img=ai.get_img('girl'), name_dict=name_dict, graph_dict=graph_dict)
         except Exception as e: 
             print(e)
             return bad_request(400)
-    names, counts = ai.get_100_names(gender)
-    return render_template("top_100.html", theme=theme, gender=gender, action='top_100_girl_page', names=names, counts=counts)
+    names, counts = ai.get_100_names(genders)
+    return render_template("top_100.html", theme=theme, gender=genders, action='top_100_girl_page', names=names, counts=counts)
 
 @app.route("/contact", methods=['GET', 'POST'])
 def contact_page(): return render_template("contact_page.html", theme=theme)
