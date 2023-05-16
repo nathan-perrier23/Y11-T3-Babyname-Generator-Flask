@@ -24,7 +24,7 @@ class DataSource:
         return graph_data_dict
     
     def retrieve_name_data(self, gender, names): 
-        return pd.read_csv(('data/'+gender+'.csv'), header=None, names=names)
+        return pd.read_csv(('data/'+gender+'.csv'), header=None, names=names, low_memory=False)
     
     def get_name_data(self, name, file_gender, names=['rank','name','alt_spellings','n_sum','n_percent','year_min','year_max','year_pop','biblical','palindrome','phones','first_letter','stresses','syllables','alliteration_first','unisex']):
         name_data_dict : dict = {}
