@@ -3,6 +3,10 @@
         {
             "language": "django-html",
             "scheme": "file"
+        },
+        {
+            "language": "python",
+            "scheme": "file"
         }
     ]
 }
