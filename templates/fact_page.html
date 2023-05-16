@@ -24,7 +24,15 @@
                 <div class="col-1">     
                     <h1 class="text_main">{{name}}</h1><br>
                     <h1>Placement<h1 class="text_info">: {{ name_dict['rank'].strip('.0') }}</h1></h1><br> <!-- works?? -->
-                    <h1>origin<h1 class="text_info">: {{origin}}</h1></h1><br> <!-- correct? ???? -->
+                    <h1>origin<h1 class="text_info">: 
+                        {% if ' ' in origin %}
+                            {% set origin = origin.split(' ') %}
+                            {% set origin = ((origin[0][0])+(origin[1][0])) %}
+                            {{ origin }}
+                        {% else %}
+                            {{ origin }}
+                        {% endif %}
+                    </h1></h1><br> <!-- correct? ???? -->
                     <h1>Gender<h1 class="text_info">: {{gender}}</h1> </h1><br>
                     <h1>Count<h1 class="text_info">: {{ (("{:,.2f}".format(name_dict['n_sum'] | float)) | string).strip('.00') }}</h1></h1><br>
                 </div>
