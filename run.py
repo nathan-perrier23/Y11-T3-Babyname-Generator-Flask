@@ -47,7 +47,7 @@ def fact_page():
         try:
             name_dict, graph_dict = data.get_data(request.form['baby_name'], ('boys' if request.form['baby_gender'] == 'male' else 'girls'))
             gender = (request.form['baby_gender'].capitalize() if (request.form['baby_gender'].capitalize() == 'Male' or request.form['baby_gender'].capitalize() == 'Female') else 'Unisex')
-            return render_template("fact_page.html", theme=theme, name=request.form['baby_name'].capitalize() , desc=request.form['baby_desc'], gender=gender.capitalize(), origin=request.form['baby_origin'], img=ai.get_img(random.choice(['family', 'kids', 'baby', 'child'])), name_dict=name_dict, graph_dict=graph_dict)
+            return render_template("fact_page.html", theme=theme, name=request.form['baby_name'].capitalize() , country=ai.get_text(('what country does ' + request.form['baby_name'] + ' originate from? (repsonce should only contain country)')), desc=request.form['baby_desc'], gender=gender.capitalize(), origin=request.form['baby_origin'], img=ai.get_img(random.choice(['family', 'kids', 'baby', 'child'])), name_dict=name_dict, graph_dict=graph_dict)
         except Exception as e: 
             print(e)
             return bad_request(400)
@@ -68,7 +68,7 @@ def top_100_boy_page(genders='Boy'):
     if request.method == "POST": 
         try:
             name_dict, graph_dict = data.get_data(request.form['name'], 'boys')
-            return render_template("fact_page.html", theme=theme, name=request.form['name'], gender='Male', origin=ai.get_text(('what country does ' + request.form['name'] + ' originate from? (repsonce should only contain country)')), desc=ai.get_text('what type of person would best suit the name ' + request.form['name'] + ' (minimum 50 words)?'), img=ai.get_img('boy'), name_dict=name_dict, graph_dict=graph_dict)
+            return render_template("fact_page.html", theme=theme, name=request.form['name'], origin=None, gender='Male', country=ai.get_text(('what country does ' + request.form['name'] + ' originate from? (repsonce should only contain country)')), desc=ai.get_text('what type of person would best suit the name ' + request.form['name'] + ' (minimum 50 words)?'), img=ai.get_img('boy'), name_dict=name_dict, graph_dict=graph_dict)
         except Exception as e: 
             print(e)
             return bad_request(400)
@@ -80,7 +80,7 @@ def top_100_girl_page(genders='Girl'):
     if request.method == "POST": 
         try:
             name_dict, graph_dict = data.get_data(request.form['name'], 'girls')
-            return render_template("fact_page.html", theme=theme, name=request.form['name'], gender='Female', origin=ai.get_text(('what country does ' + request.form['name'] + ' originate from? (repsonce should only contain country)')), desc=ai.get_text('what type of person would best suit the name ' + request.form['name'] + ' (minimum 50 words)?'), img=ai.get_img('girl'), name_dict=name_dict, graph_dict=graph_dict)
+            return render_template("fact_page.html", theme=theme, name=request.form['name'], origin=None, gender='Female', country=ai.get_text(('what country does ' + request.form['name'] + ' originate from? (repsonce should only contain country)')), desc=ai.get_text('what type of person would best suit the name ' + request.form['name'] + ' (minimum 50 words)?'), img=ai.get_img('girl'), name_dict=name_dict, graph_dict=graph_dict)
         except Exception as e: 
             print(e)
             return bad_request(400)

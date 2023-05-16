@@ -13,6 +13,11 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='css/map.scss') }}">
 	</head>
     <body> <!-- ! make so it uses templates (extended) -->
+        {% if origin == None %}
+            {% set origin = country %}
+        {% else %}
+            {% set origin = origin %}
+        {% endif %}
         <section id="one">              <!-- section one -->  
             {% include 'nav.html' %}        <!-- includes the navbar -->
             <div class="row-1">             <!-- row -->    
@@ -32,7 +37,7 @@
             <div class="row-2">
                 <div class="row-2 col-1">
                     <!--AIzaSyAo7gc4hxFarWdZF4ArPGnGWh-vDrM2cdo-->
-                    <iframe width="100%" height="100%" controls="none" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q={{country}}&amp;key=AIzaSyAo7gc4hxFarWdZF4ArPGnGWh-vDrM2cdo"></iframe>
+                    <iframe width="100%" height="100%" controls="None" frameborder="0" scrolling="no" style="border:0" src="https://www.google.com/maps/embed/v1/place?q={{country}}&amp;key=AIzaSyAo7gc4hxFarWdZF4ArPGnGWh-vDrM2cdo"></iframe>
                 </div>
                 <div class="row-2 col-2">
                     <div class="content">

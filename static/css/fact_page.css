@@ -114,7 +114,8 @@ h1 {
 }
 
 #two .row-2 .col-1 iframe {
-    filter: invert(90%) hue-rotate(180deg);
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%) invert(1) hue-rotate(180deg);
 }
 
 #two .row-2 .col-1 .map-container {
