@@ -13,7 +13,7 @@ app = Flask(__name__)
 app.config['HONEYBADGER_ENVIRONMENT'] = 'production' #Set HONEYBADGER_ENVIRONMENT configuration variable in the application to 'production'
 app.config['HONEYBADGER_API_KEY'] = 'hbp_MYOQ2R1pf24h8CnVXiXCtQbYv8Bijm4yNgCZ'
 app.config['HONEYBADGER_PARAMS_FILTERS'] = 'password, secret, credit-card'
-FlaskHoneybadger(app, report_exceptions=True)
+FlaskHoneybadger(app, report_exceptions=True) #allows for admin to reviece error reports and updates
 
 theme = 'css/dist/theme/blood.css'
 
