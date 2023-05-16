@@ -27,7 +27,16 @@
                     <p class="gender">Gender: {{genders[loop.index0]}}</p>
                     <p class="origin" style="margin:none">Origin:
                         {% for origin in origins[names[loop.index0]] %} 
-                            <p class="origin" style="margin:none">&nbsp{{origin}},</p> <!--{{origin}},-->
+                            {% if (origins[names[loop.index0]]|length) >= 5 %} <!-- test -->
+                                <style>
+                                    .wrap .col:hover .origin { font-size: 1.25rem; }
+                                </style> 
+                            {% else %}
+                                <style>
+                                    .wrap .col:hover .origin { font-size: 1.5rem; }
+                                </style> 
+                            {% endif %}
+                            <p class="origin" style="margin:none">&nbsp{{origin}},</p>
                         {% endfor %}
                     </p>
                     <form action="{{ url_for('fact_page') }}" method="POST">
