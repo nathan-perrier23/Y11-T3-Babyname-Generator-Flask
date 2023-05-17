@@ -13,11 +13,7 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='css/map.scss') }}">
 	</head>
     <body> <!-- ! make so it uses templates (extended) -->
-        {% if origin == None %}
-            {% set origin = country %}
-        {% else %}
-            {% set origin = origin %}
-        {% endif %}
+        {% set origin = country %}
         <section id="one">              <!-- section one -->  
             {% include 'nav.html' %}        <!-- includes the navbar -->
             <div class="row-1">             <!-- row -->    

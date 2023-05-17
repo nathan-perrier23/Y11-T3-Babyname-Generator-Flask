@@ -47,7 +47,7 @@ def fact_page():
         try:
             name_dict, graph_dict = data.get_data(request.form['baby_name'], ('boys' if request.form['baby_gender'] == 'male' else 'girls'))
             gender = (request.form['baby_gender'].capitalize() if (request.form['baby_gender'].capitalize() == 'Male' or request.form['baby_gender'].capitalize() == 'Female') else 'Unisex')
-            return render_template("fact_page.html", theme=theme, name=request.form['baby_name'].capitalize() , country=ai.get_text(('what country does ' + request.form['baby_name'] + ' originate from? (repsonce should only contain country)')), desc=request.form['baby_desc'], gender=gender.capitalize(), origin=request.form['baby_origin'], img=ai.get_img(random.choice(['family', 'kids', 'baby', 'child'])), name_dict=name_dict, graph_dict=graph_dict)
+            return render_template("fact_page.html", theme=theme, name=request.form['baby_name'].capitalize(), text1=ai.get_text('create a paragraph about the origin of ' + request.form['name'] + ' in ' + country + ' (MUST be between 120-135 words)'), text2=ai.get_text('Why is ' + request.form['name'] + " a great name for a baby? (MUST be between 120-135 words)"), country=ai.get_text(('what country does ' + request.form['baby_name'] + ' originate from? (repsonce should only contain country)')), desc=request.form['baby_desc'], gender=gender.capitalize(), origin=request.form['baby_origin'], img=ai.get_img(random.choice(['family', 'kids', 'baby', 'child'])), name_dict=name_dict, graph_dict=graph_dict)
         except Exception as e: 
             print(e)
             return bad_request(400)
