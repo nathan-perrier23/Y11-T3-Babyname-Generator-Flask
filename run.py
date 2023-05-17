@@ -32,11 +32,10 @@ def name():
     try: 
         keys, names, descriptions = ai.get_babynames(request.form['prompt'], (request.form['gender'] if request.form['gender'] != 'unknown' else 'boy and girl'))
         if len(keys) == 0: print('\n', '-------------- Invalid Input ---------------', '\n'); return not_acceptable(406,'Input a valid prompt -', 'Invalid Prompt')
-        else:
-            for name in names:
-                try: genders, origins = ai.get_name_data_ai(name, genders, origins)      
-                except Exception as e: print(e)
-            return render_template("your_names.html", theme=theme, keys=keys, names=names, descriptions=descriptions, origins=origins, genders=genders)
+        for name in names:
+            try: genders, origins = ai.get_name_data_ai(name, genders, origins)      
+            except Exception as e: print(e)
+        return render_template("your_names.html", theme=theme, keys=keys, names=names, descriptions=descriptions, origins=origins, genders=genders)
     except Exception as e: 
         print('\n', '-------------------------- Issue retrieving names ----------------------------', '\n', e, '\n')
         return not_acceptable(406,'Issue retrieving names -', 'OpenAI API Error')

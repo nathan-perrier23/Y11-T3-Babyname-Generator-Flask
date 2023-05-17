@@ -31,7 +31,7 @@ body {background: var(--r-background-color);}  /* padding: 0;*/
 }
 
 .wrap .col p {
-  text-size-adjust: 50%;
+  text-size-adjust: 75%;
 }
 
 .wrap .col h1 {
@@ -64,6 +64,8 @@ body {background: var(--r-background-color);}  /* padding: 0;*/
   /* margin-top: 70%; needed */
   position: relative;
   top: 50%;
+  margin-left: .075em;
+  margin-right:.075em;
   transform: translateY(-47%);
   transition: ease-in-out all .5s;
 }
@@ -181,17 +183,17 @@ div.wrap > div:nth-child(odd) {
   background: var(--r-background-color);
 }
 .wrap .col:hover {
-  width: 350%;
+  width: 500%;
   transition: 1s all ease-in-out;
 }
 
 div.wrap > div:hover {
-  width: 50%;  
+  width: 2%;  
   transition: 1s all ease-in-out;  
 }
 
 .wrap .col:only-child:hover {
-  width: 100%;
+  width: 2%;
   transition: 1s all ease-in-out;
 }
 
