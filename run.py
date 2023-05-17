@@ -68,8 +68,7 @@ def top_100_boy_page(genders='Boy'):
     if request.method == "POST": 
         try:
             name_dict, graph_dict = data.get_data(request.form['name'], 'boys')
-            # country = ai.get_text(('what country does ' + request.form['name'] + ' originate from? (repsonse MUST only contain country)')) 
-            country='United Kingdom'
+            country = ai.get_text(('what country does ' + request.form['name'] + ' originate from? (repsonse MUST only contain country)')) 
             return render_template("fact_page.html", theme=theme, name=request.form['name'], origin=None, text1=ai.get_text('create a paragraph about the origin of ' + request.form['name'] + ' in ' + country + ' (MUST be between 120-135 words)'), text2=ai.get_text('Why is ' + request.form['name'] + " a great name for a baby? (MUST be between 120-135 words)"), gender='Male', country=country, desc=ai.get_text('what type of person would best suit the name ' + request.form['name'] + ' (minimum 50 words)?'), img=ai.get_img('a boy with his parents'), name_dict=name_dict, graph_dict=graph_dict)
         except Exception as e: 
             print(e)
