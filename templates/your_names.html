@@ -40,10 +40,10 @@
                         {% endfor %}
                     </p>
                     <form action="{{ url_for('fact_page') }}" method="POST">
-                        <input type="hidden" name="baby_name" value="{{ names[loop.index0] }}">
-                        <input type="hidden" name="baby_desc" value="{{ descriptions[loop.index0] }}">
-                        <input type="hidden" name="baby_gender" value="{{ genders[loop.index0] }}">
-                        <input type="hidden" name="baby_origin" value="{{ origins[names[loop.index0]][0] }}">
+                        <input type="hidden" name="name" value="{{ names[loop.index0] }}">
+                        <input type="hidden" name="desc" value="{{ descriptions[loop.index0] }}">
+                        <input type="hidden" name="gender" value="{{ genders[loop.index0] }}">
+                        <input type="hidden" name="origin" value="{{ origins[names[loop.index0]][0] }}">
                         <button type="submit">See More<span class="load loading"></span></button>
                     </form>
                 </div>
@@ -55,8 +55,8 @@
                 items.addEventListener('click',(evt)=>{
                     const addCSS = css => document.head.appendChild(document.createElement("style")).innerHTML=css;
                     evt.target.classList.add('activeLoading');
-                    addCSS(".wrap .col:hover:nth-child(even) button {padding: 1.25rem 3rem;background-color: var(--r-background-color);margin-top: 1%;}");
-                    addCSS(".wrap .col:hover:nth-child(odd) button {padding: 1.25rem 3rem;background-color: var(--r-link-color);margin-top: 1%;}");
+                    addCSS(".wrap .col:hover:nth-child(even) button {padding: 1.25rem 3rem;background-color: var(--r-background-color);margin-top: 1%;color:var(--r-main-color);}");
+                    addCSS(".wrap .col:hover:nth-child(odd) button {padding: 1.25rem 3rem;background-color: var(--r-link-color);margin-top: 1%;color:var(--r-main-color);}");
                 })   
             })
         </script>

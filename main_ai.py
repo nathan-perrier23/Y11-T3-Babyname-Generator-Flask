@@ -6,6 +6,8 @@ import urllib.request as request_url
 
 from data import Data
 
+import random
+
 import smtplib, ssl
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
@@ -104,6 +106,9 @@ class Main():
             origins[name] = origin_list 
         except: genders.append('unknown'); origins[name] = ['unknown']
         return genders, origins
+    
+    def get_items_fact_page(self, gender, desc):
+        return (gender.capitalize() if (gender.capitalize() == 'Male' or gender.capitalize() == 'Female') else 'Unisex'), desc, self.get_img(random.choice(['family', 'kids', 'baby', 'child']))
     
     def get_100_names(self, gender):
         url = 'https://www.data.qld.gov.au/api/3/action/datastore_search?resource_id=9368a6bb-b6ae-4e47-a4f5-48299333047d&limit=100'

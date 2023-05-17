@@ -42,12 +42,13 @@ def name():
         return not_acceptable(406,'Issue retrieving names -', 'OpenAI API Error')
     
 @app.route("/Fact Page", methods=['GET', 'POST']) 
-def fact_page():
+def fact_page(gender=None, img=None, desc=None):
     if request.method == 'POST':
         try:
-            name_dict, graph_dict = data.get_data(request.form['baby_name'], ('boys' if request.form['baby_gender'] == 'male' else 'girls'))
-            gender = (request.form['baby_gender'].capitalize() if (request.form['baby_gender'].capitalize() == 'Male' or request.form['baby_gender'].capitalize() == 'Female') else 'Unisex')
-            return render_template("fact_page.html", theme=theme, name=request.form['baby_name'].capitalize(), text1=ai.get_text('create a paragraph about the origin of ' + request.form['name'] + ' in ' + country + ' (MUST be between 120-135 words)'), text2=ai.get_text('Why is ' + request.form['name'] + " a great name for a baby? (MUST be between 120-135 words)"), country=ai.get_text(('what country does ' + request.form['baby_name'] + ' originate from? (repsonce should only contain country)')), desc=request.form['baby_desc'], gender=gender.capitalize(), origin=request.form['baby_origin'], img=ai.get_img(random.choice(['family', 'kids', 'baby', 'child'])), name_dict=name_dict, graph_dict=graph_dict)
+            if gender == None: gender, desc, img = ai.get_items_fact_page(request.form['gender'], request.form['desc'])
+            name_dict, graph_dict = data.get_data(request.form['name'], ('boys' if gender == 'male' else 'girls'))
+            country = ai.get_text(('what country does ' + request.form['name'] + ' originate from? (response MUST only contain country)')) 
+            return render_template("fact_page.html", theme=theme, name=request.form['name'].capitalize(), text1=ai.get_text('create a paragraph about the origin of ' + request.form['name'] + ' in ' + country + ' (MUST be between 120-135 words)'), text2=ai.get_text('Why is ' + request.form['name'] + " a great name for a baby? (MUST be between 120-135 words)"), country=country, desc=desc, gender=gender.capitalize(), origin=None, img=img, name_dict=name_dict, graph_dict=graph_dict)
         except Exception as e: 
             print(e)
             return bad_request(400)
@@ -66,26 +67,14 @@ def about_page(): return render_template("about_page.html", theme=theme, img=ai.
 @app.route("/boy names", methods=['GET', 'POST'])
 def top_100_boy_page(genders='Boy'):
     if request.method == "POST": 
-        try:
-            name_dict, graph_dict = data.get_data(request.form['name'], 'boys')
-            country = ai.get_text(('what country does ' + request.form['name'] + ' originate from? (repsonse MUST only contain country)')) 
-            return render_template("fact_page.html", theme=theme, name=request.form['name'], origin=None, text1=ai.get_text('create a paragraph about the origin of ' + request.form['name'] + ' in ' + country + ' (MUST be between 120-135 words)'), text2=ai.get_text('Why is ' + request.form['name'] + " a great name for a baby? (MUST be between 120-135 words)"), gender='Male', country=country, desc=ai.get_text('what type of person would best suit the name ' + request.form['name'] + ' (minimum 50 words)?'), img=ai.get_img('a boy with his parents'), name_dict=name_dict, graph_dict=graph_dict)
-        except Exception as e: 
-            print(e)
-            return bad_request(400)
+        return fact_page(gender='Male', img=ai.get_img('a boy with his parents'), desc=ai.get_text('what type of person would best suit the name ' + request.form['name'] + ' (minimum 50 words)?'))
     names, counts = ai.get_100_names(genders)
     return render_template("top_100.html", theme=theme, gender=genders, action='top_100_boy_page', names=names, counts=counts)
 
 @app.route("/girl names", methods=['GET', 'POST'])
 def top_100_girl_page(genders='Girl'):
     if request.method == "POST": 
-        try:
-            name_dict, graph_dict = data.get_data(request.form['name'], 'girls')
-            country = ai.get_text(('what country does ' + request.form['name'] + ' originate from? (repsonse MUST only contain country)'))
-            return render_template("fact_page.html", theme=theme, name=request.form['name'], origin=None, text1=ai.get_text('create a paragraph about the origin of ' + request.form['name'] + ' in ' + country + ' (MUST be between 120-135 words)'), text2=ai.get_text("Wy is " + request.form['name'] + " a great name for a baby? (MUST be between 120-135 words)"), gender='Female', country=country, desc=ai.get_text('what type of person would best suit the name ' + request.form['name'] + ' (minimum 50 words)?'), img=ai.get_img('a girl with her parents'), name_dict=name_dict, graph_dict=graph_dict)
-        except Exception as e: 
-            print(e)
-            return bad_request(400)
+        return fact_page(gender='Female', img=ai.get_img('a girl with her parents'), desc=ai.get_text('what type of person would best suit the name ' + request.form['name'] + ' (minimum 50 words)?'))
     names, counts = ai.get_100_names(genders)
     return render_template("top_100.html", theme=theme, gender=genders, action='top_100_girl_page', names=names, counts=counts)
 
