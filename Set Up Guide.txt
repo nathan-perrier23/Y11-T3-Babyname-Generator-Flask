@@ -10,6 +10,11 @@ Steps to run the App:
     4. now the environment is being created (it can take a while as all libraries are 
     being downloaded) once it is completed move to STEP 4 
 
-3. if STEP 2 did not work, type type `pip install -r requirements.txt` in the terminal
+3. if STEP 2 did not work, do this:
+
+    1. Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+    2. python -m venv flask
+    3. flask\Scripts\activate
+    4. manually pip install openai, pandas, flask, bs4 or try use 'pip install -r requirements.txt'
 
 4. open the file "run.py" and click the arrow in the top right corner OR type 'python run.py' in the terminal
