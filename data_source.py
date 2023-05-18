@@ -6,11 +6,11 @@ class DataSource:
         pass
         
     def retrieve_graph_data(self):
-        source_files = sorted(Path("data/years").glob("*.txt"))
-        dataframes = []
-        for file in source_files:
-            df = pd.read_csv(file, header=None, names=["name", "sex", "n"])
-            df["year"] = int(file.stem.replace("yob", ""))
+        source_files = sorted(Path("data/years").glob("*.txt"))   
+        dataframes = [] 
+        for file in source_files:  
+            df = pd.read_csv(file, header=None, names=["name", "sex", "n"])  
+            df["year"] = int(file.stem.replace("yob", "")) 
             dataframes.append(df) 
         return pd.concat(dataframes)
         
@@ -35,7 +35,7 @@ class DataSource:
         except:
             name_data = name_data.groupby(["alt_spelling"], as_index=False)
             name_data = name_data.get_group(name)
-        graph_name = list(name_data['name'])[0] #? weird
+        graph_name = list(name_data['name'])[0] 
         try: graph_data_dict = self.get_graph_data(graph_name) 
         except: graph_data_dict = None 
         for h_name in names: 
