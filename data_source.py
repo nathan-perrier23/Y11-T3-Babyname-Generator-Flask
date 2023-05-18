@@ -7,7 +7,7 @@ class DataSource:
         
     def retrieve_graph_data(self):
         source_files = sorted(Path("data/years").glob("*.txt"))
-        dataframes : list = []
+        dataframes = []
         for file in source_files:
             df = pd.read_csv(file, header=None, names=["name", "sex", "n"])
             df["year"] = int(file.stem.replace("yob", ""))
@@ -18,7 +18,7 @@ class DataSource:
         graph_data = self.retrieve_graph_data()
         graph_data = graph_data.groupby(["name"], as_index=False)
         graph_data = graph_data.get_group(name) 
-        graph_data_dict : dict = {}
+        graph_data_dict = {}
         for n, year in zip(graph_data['n'], graph_data['year']):
             graph_data_dict[year] = n
         return graph_data_dict
@@ -27,7 +27,7 @@ class DataSource:
         return pd.read_csv(('data/'+gender+'.csv'), header=None, names=names, low_memory=False)
     
     def get_name_data(self, name, file_gender, names=['rank','name','alt_spellings','n_sum','n_percent','year_min','year_max','year_pop','biblical','palindrome','phones','first_letter','stresses','syllables','alliteration_first','unisex']):
-        name_data_dict : dict = {}
+        name_data_dict = {}
         name_data = self.retrieve_name_data(file_gender, names)
         try: 
             name_data = name_data.groupby(["name"], as_index=False)
