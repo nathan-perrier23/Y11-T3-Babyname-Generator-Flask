@@ -1,4 +1,3 @@
-# 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
 import openai
 import re
 import json
@@ -40,7 +39,7 @@ class Main():
         response = openai.Completion.create( 
             model="text-davinci-003",
             prompt=prompt,
-            temperature=0.25, 
+            temperature=0.5, 
             max_tokens=300, 
             top_p=1, 
             frequency_penalty=0.25,
@@ -57,13 +56,13 @@ class Main():
         #? patter = ' #r'(\d+)\. (\w+) - (.+)'
 
         # Compile the regular expression pattern with the re.MULTILINE flag
-        regex = re.compile(r'(?P<order>\d+)\. (?P<name>[^:]+):\s(?P<description>.+?)(?=\s*\d+\.|\Z)', re.MULTILINE) #? works?
+        regex = re.compile(r'(?P<order>\d+)\. (?P<name>[^:]+):\s(?P<description>.+?)(?=\s*\d+\.|\Z)', re.MULTILINE) 
 
         # Find all matches in the input string
         matches = regex.findall(names)
         
-        if matches: pass
-        else:
+        if not(matches): #test if empty (if didn't work)
+            print('----------------- Pattern failed, trying new pattern -----------------')
             regex = re.compile(r"(\d+)\.\s*([^\s:]+)\s*[:\-]\s*(.*)", re.MULTILINE) #r'(?P<order>\d+)\. (?P<name>[^–]+)–\s(?P<description>.+?)(?=\d+\.|\Z)'
             matches = regex.findall(names)
             
