@@ -91,7 +91,7 @@ class Main():
     
         
     def get_name_data_ai(self, name, genders, origins):
-        url = "https://www.behindthename.com/api/lookup.json/?name=" + name + "&key=na759038243"  #TODO pass through url
+        url = "https://www.behindthename.com/api/lookup.json/?name=" + name + "&key={{YOUR-BEHIND-THE-NAME-KEY}}"  #TODO pass through url
         fileobj = request_url.urlopen(url) 
         fileobj = fileobj.read().decode('utf-8')
         name_data = json.loads(fileobj)
