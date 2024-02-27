@@ -14,8 +14,8 @@ from urllib.request import urlopen
 from bs4 import BeautifulSoup
 
 
-openai.api_key = "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" 
-GMAIL_SECRET_KEY = 'leoijzvqxsmpzngp'
+openai.api_key = "your-openai-api-key" 
+GMAIL_SECRET_KEY = 'your-gmail-secret-key'
 
 class Main():
     
@@ -140,7 +140,7 @@ class Main():
         
         msg.attach(html)
 
-        s_email = 'aibabyname@gmail.com'
+        s_email = 'your-gmail'
         
         context = ssl.create_default_context()
         # Try to log in to server and send email
